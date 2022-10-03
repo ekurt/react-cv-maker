@@ -28,7 +28,7 @@
     "dev": "vite --port 3000 --open",
     "build": "vite build",
     "preview": "vite preview --port 5000 --open",
-    "up": "vite --port 3000"
+    "serve": "vite --port 3000"
   },
   "dependencies": {
     "react": "^18.2.0",
