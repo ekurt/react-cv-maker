@@ -1,11 +1,13 @@
-import styles from './App.module.css'
+import { Form, Preview } from "./components";
+import styles from "./App.module.css";
 
 function App() {
   return (
     <div className={styles.app}>
-      react-cv-maker
+      <Form />
+      <Preview />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
