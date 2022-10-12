@@ -1,0 +1,1 @@
+export { PersonalSchema } from "./PersonalSchema";
