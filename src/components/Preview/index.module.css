@@ -1,0 +1,3 @@
+.preview {
+  @apply bg-orange-300 w-3/5 h-full flex items-start justify-start overflow-auto;
+}
