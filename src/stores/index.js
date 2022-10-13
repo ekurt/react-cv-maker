@@ -6,4 +6,8 @@ export default configureStore({
   reducer: {
     form: formReducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });
