@@ -8,3 +8,4 @@ export { FormSkills } from './FormSkills'
 export { FormEducation } from './FormEducation'
 export { FormExperience } from './FormExperience'
 export { Preview } from './Preview'
+export { FormProjects } from "./FormProjects";

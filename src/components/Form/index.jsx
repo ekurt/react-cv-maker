@@ -20,6 +20,7 @@ export const Form = () => {
       <FormEducation />
       <FormExperience />
       <FormSkills />
+      <FormProjects />
       <FormCourses />
       <FormReferences />
     </div>
