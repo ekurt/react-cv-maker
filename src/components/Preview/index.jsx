@@ -1,8 +1,19 @@
-import React from 'react'
-import styles from './index.module.css'
+import React from "react";
+import {
+  PreviewPersonal,
+  PreviewLanguage,
+  PreviewHobbies,
+  PreviewEducation,
+  PreviewExperience,
+  PreviewSkills,
+  PreviewProjects,
+  PreviewCourses,
+  PreviewReferences,
+} from "../index";
+import styles from "./index.module.css";
 
 export const Preview = () => {
-	return (
+  return (
     <div className={styles.preview}>
       <div className="w-2/6 bg-blue-400 h-full">
         <PreviewPersonal />
@@ -19,4 +30,4 @@ export const Preview = () => {
       </div>
     </div>
   );
-}
+};

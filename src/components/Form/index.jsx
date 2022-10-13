@@ -6,6 +6,7 @@ import {
   FormEducation,
   FormExperience,
   FormSkills,
+  FormProjects,
   FormCourses,
   FormReferences,
 } from "../index";
