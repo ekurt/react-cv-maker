@@ -1,37 +1,34 @@
 import React from "react";
-import { Formik, Form, Field, FastField } from "formik";
-import {
-  Input,
-  Textarea,
-  Select,
-  Checkbox,
-  Radio,
-  File,
-  Button,
-} from "../_form";
+import { Formik, Form } from "formik";
+import { Input, Textarea, File, Button } from "../_form";
 import styles from "./index.module.css";
 import { PersonalSchema } from "../../validations";
+import { useDispatch, useSelector } from "react-redux";
+import { setPersonal } from "../../stores/form";
 
 export const FormPersonal = () => {
+  const dispatch = useDispatch();
+  const { personal } = useSelector((state) => state.form);
+
   return (
     <div className={styles.personal}>
       <h4>Personal Information</h4>
       <Formik
         validationSchema={PersonalSchema}
         initialValues={{
-          nameSurname: "",
-          title: "",
-          photo: "",
-          address: "",
-          gsm: "",
-          mektup: "",
-          description: "",
+          nameSurname: "asdasdasd",
+          title: "asdasdasda",
+          photo: {},
+          address: "asdasd",
+          gsm: "123123123",
+          mektup: "asdasda@msn.cn",
+          description:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium nam, quod ratione accusamus ducimus soluta cumque numquam eaque, delectus fugit ea quam fugiat necessitatibus doloribus quis? Culpa omnis beatae tenetur.",
         }}
-        onSubmit={(values, actions) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            actions.setSubmitting(false);
-          }, 1000);
+        onSubmit={(values) => {
+          dispatch(
+            setPersonal({ ...values, photo: URL.createObjectURL(values.photo) })
+          );
         }}
       >
         {({
@@ -90,56 +87,10 @@ export const FormPersonal = () => {
           </Form>
         )}
       </Formik>
-      {/*  <Formik
-        initialValues={{
-          name: "",
-          surname: "",
-          about: "",
-          level: "",
-          rules: false,
-          gender: "1",
-          skills: ["php", "css"],
-          avatar: false,
-        }}
-        onSubmit={(values, actions) => {
-          console.log(values);
-          console.log(actions);
-          setTimeout(() => {
-            actions.setSubmitting(false);
-          }, 2000);
-        }}
-      >
-        {({ isSubmitting, values }) => (
-          <Form className="flex">
-            <Input name="name" placeholder="Name" autoComplete="none" />
-            <Input name="surname" placeholder="Surname" autoComplete="none" />
-            <Textarea name="about" placeholder="Description" rows={4} />
-            <Select
-              label="Cinsiyetiniz"
-              name="gender"
-              options={[
-                { key: "1", value: "Kadın" },
-                { key: "2", value: "Erkek" },
-              ]}
-            />
-            <Checkbox label="Kuralları kabul ediyorum" name="rules" />
-            <Radio
-              label="Seviye"
-              name="level"
-              options={[
-                { key: "beginner", value: "Başlangıç" },
-                { key: "jr", value: "Jr. Dev" },
-                { key: "sr", value: "Sr. Dev" },
-              ]}
-            />
-            <File label="Avatar Yükle" name="avatar" />
-            <Button type="submit" disabled={isSubmitting}>
-              Gönder
-            </Button>
-            <pre>{values.avatar?.name}</pre>
-          </Form>
-        )}
-      </Formik> */}
+      <div className="w-100 overflow-hidden">
+        <pre>{JSON.stringify(personal, null, 2)}</pre>
+        <img src={personal.photo} alt="" />
+      </div>
     </div>
   );
 };
