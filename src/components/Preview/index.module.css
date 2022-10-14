@@ -1,3 +1,11 @@
 .preview {
   @apply bg-orange-300 w-3/5 h-full flex items-start justify-start overflow-auto;
 }
+
+.leftSide {
+  @apply w-2/6 bg-blue-400 h-full p-10;
+}
+
+.rightSide {
+  @apply w-4/6 bg-green-400 h-full p-10;
+}

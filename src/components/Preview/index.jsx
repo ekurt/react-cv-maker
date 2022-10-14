@@ -15,12 +15,12 @@ import styles from "./index.module.css";
 export const Preview = () => {
   return (
     <div className={styles.preview}>
-      <div className="w-2/6 bg-blue-400 h-full">
+      <div className={styles.leftSide}>
         <PreviewPersonal />
         <PreviewLanguage />
         <PreviewHobbies />
       </div>
-      <div className="w-4/6 bg-green-400 h-full">
+      <div className={styles.rightSide}>
         <PreviewEducation />
         <PreviewExperience />
         <PreviewSkills />

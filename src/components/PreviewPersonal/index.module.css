@@ -1,0 +1,3 @@
+.personal {
+  @apply flex flex-col w-full;
+}

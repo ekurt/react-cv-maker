@@ -9,7 +9,7 @@ export const PersonalSchema = Yup.object().shape({
   description: Yup.string().required().min(200),
   address: Yup.string(),
   gsm: Yup.number(),
-  mektup: Yup.string().email().required(),
+  letter: Yup.string().email().required(),
   photo: Yup.mixed()
     .test({
       message: "This field is a required field",

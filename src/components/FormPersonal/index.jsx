@@ -16,12 +16,12 @@ export const FormPersonal = () => {
       <Formik
         validationSchema={PersonalSchema}
         initialValues={{
-          nameSurname: "asdasdasd",
-          title: "asdasdasda",
+          nameSurname: "Emre Kurt",
+          title: "Front-End Web Developer",
           photo: {},
-          address: "asdasd",
-          gsm: "123123123",
-          mektup: "asdasda@msn.cn",
+          address: "Antalya / Turkey",
+          gsm: "5345244208",
+          letter: "hi@ekurt.dev",
           description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium nam, quod ratione accusamus ducimus soluta cumque numquam eaque, delectus fugit ea quam fugiat necessitatibus doloribus quis? Culpa omnis beatae tenetur.",
         }}
@@ -67,8 +67,8 @@ export const FormPersonal = () => {
             />
             <Input
               onChange={handleChange}
-              value={values.mektup}
-              name="mektup"
+              value={values.letter}
+              name="letter"
               placeholder="Email Address"
             />
             <Textarea
@@ -87,10 +87,6 @@ export const FormPersonal = () => {
           </Form>
         )}
       </Formik>
-      <div className="w-100 overflow-hidden">
-        <pre>{JSON.stringify(personal, null, 2)}</pre>
-        <img src={personal.photo} alt="" />
-      </div>
     </div>
   );
 };
