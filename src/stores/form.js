@@ -5,6 +5,7 @@ export const formSlice = createSlice({
   initialState: {
     personal: {},
     languages: [],
+    hobbies: [],
   },
   reducers: {
     setPersonal: (state, action) => {
@@ -13,9 +14,12 @@ export const formSlice = createSlice({
     setLanguages: (state, action) => {
       state.languages = action.payload;
     },
+    setHobbies: (state, action) => {
+      state.hobbies = action.payload;
+    },
   },
 });
 
-export const { setPersonal, setLanguages } = formSlice.actions;
+export const { setPersonal, setLanguages, setHobbies } = formSlice.actions;
 
 export default formSlice.reducer;

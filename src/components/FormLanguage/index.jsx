@@ -12,7 +12,7 @@ export const FormLanguage = () => {
 
   return (
     <div className={styles.language}>
-      <h4>Language</h4>
+      <h4>Languages</h4>
       <Formik
         validationSchema={LanguageSchema}
         initialValues={{
@@ -25,12 +25,7 @@ export const FormLanguage = () => {
           values.level = {};
         }}
       >
-        {({
-          handleSubmit,
-          handleReset,
-          handleChange,
-          values,
-        }) => (
+        {({ handleSubmit, handleReset, handleChange, values }) => (
           <Form onSubmit={handleSubmit} autoComplete="off" role="presentation">
             <Input
               onChange={handleChange}
