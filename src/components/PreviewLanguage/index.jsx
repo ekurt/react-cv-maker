@@ -7,7 +7,9 @@ export const PreviewLanguage = () => {
 
   return (
     <div>
-      <pre>{JSON.stringify(languages, null, 2)}</pre>
+      {languages.length !== 0 && (
+        <pre>{JSON.stringify(languages, null, 2)}</pre>
+      )}
     </div>
   );
 };
