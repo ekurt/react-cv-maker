@@ -78,10 +78,10 @@ export const FormPersonal = () => {
               name="description"
               placeholder="Description"
             />
-            <Button type="submit" disabled={isSubmitting}>
+            <Button type="submit"variant="info" disabled={isSubmitting}>
               ADD
             </Button>
-            <Button type="button" onClick={handleReset}>
+            <Button type="reset" variant="danger" onClick={handleReset}>
               CLEAR
             </Button>
           </Form>
