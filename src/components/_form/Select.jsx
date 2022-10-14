@@ -13,18 +13,18 @@ export default function Select({ label, sizeFull = false, options, ...props }) {
     >
       <select
         className={classNames({
-          "w-full h-auto border-b-2 text-white bg-transparent h-8 text-md px-2 outline-none flex-shrink-0 appearance-none": true,
+          "w-full border-b-2 text-white bg-transparent h-8 text-md px-2 outline-none flex-shrink-0 appearance-none": true,
           "border-white border-opacity-30": !meta.error,
           "border-red-600 border-opacity-100": meta.error,
         })}
         {...fields}
         {...props}
       >
-        <option className="bg-blue-600" value="">
+        <option className="bg-sky-700" value="">
           Select {label}
         </option>
         {options.map((option, index) => (
-          <option className="bg-blue-600" key={index} value={option.key}>
+          <option className="bg-sky-700" key={index} value={option.key}>
             {option.value}
           </option>
         ))}
