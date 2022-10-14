@@ -3,12 +3,11 @@ import { Formik, Form } from "formik";
 import { Input, Textarea, File, Button } from "../_form";
 import styles from "./index.module.css";
 import { PersonalSchema } from "../../validations";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setPersonal } from "../../stores/form";
 
 export const FormPersonal = () => {
   const dispatch = useDispatch();
-  const { personal } = useSelector((state) => state.form);
 
   return (
     <div className={styles.personal}>
@@ -78,7 +77,7 @@ export const FormPersonal = () => {
               name="description"
               placeholder="Description"
             />
-            <Button type="submit"variant="info" disabled={isSubmitting}>
+            <Button type="submit" variant="info" disabled={isSubmitting}>
               ADD
             </Button>
             <Button type="reset" variant="danger" onClick={handleReset}>
