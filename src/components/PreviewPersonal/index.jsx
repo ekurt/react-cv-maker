@@ -11,15 +11,40 @@ export const PreviewPersonal = () => {
   return (
     <div className={styles.personal}>
       {photo && (
-        <div className="p-8">
-          <img className="rounded-full" src={photo} alt="" />
+        <div className={styles.photo}>
+          <img className={styles.rounded} src={photo} alt="" />
         </div>
       )}
-      {nameSurname && <div>Name Surname: {nameSurname}</div>}
-      {title && <div>Title: {title}</div>}
-      {address && <div>Address: {address}</div>}
-      {gsm && <div>Mobile Phone: {gsm}</div>}
-      {letter && <div>Email Address: {letter}</div>}
+      {nameSurname && (
+        <>
+          <div className={styles.title}>
+            Personal Information
+          </div>
+          <div className={styles.item}>
+            <strong>Name Surname</strong> {nameSurname}
+          </div>
+        </>
+      )}
+      {title && (
+        <div className={styles.item}>
+          <strong>Title</strong> {title}
+        </div>
+      )}
+      {address && (
+        <div className={styles.item}>
+          <strong>Address</strong> {address}
+        </div>
+      )}
+      {gsm && (
+        <div className={styles.item}>
+          <strong>Mobile Phone</strong> {gsm}
+        </div>
+      )}
+      {letter && (
+        <div className={styles.item}>
+          <strong>Email Address</strong> {letter}
+        </div>
+      )}
     </div>
   );
 };
