@@ -9,3 +9,7 @@
 .subtitle {
   @apply mt-2 text-white text-2xl text-center tracking-wider;
 }
+
+.description {
+  @apply w-full p-6;
+}
