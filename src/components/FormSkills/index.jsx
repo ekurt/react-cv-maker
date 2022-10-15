@@ -57,7 +57,6 @@ export const FormSkills = () => {
           </Form>
         )}
       </Formik>
-      <pre>{JSON.stringify(skills, null, 2)}</pre>
     </div>
   );
 };
