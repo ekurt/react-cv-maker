@@ -7,5 +7,5 @@
 }
 
 .rightSide {
-  @apply w-4/6 bg-white h-auto min-h-full p-6;
+  @apply w-4/6 bg-white h-auto min-h-full;
 }

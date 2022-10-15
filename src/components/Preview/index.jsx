@@ -3,6 +3,7 @@ import {
   PreviewPersonal,
   PreviewLanguage,
   PreviewHobbies,
+  PreviewHeader,
   PreviewEducation,
   PreviewExperience,
   PreviewSkills,
@@ -21,6 +22,7 @@ export const Preview = () => {
         <PreviewHobbies />
       </div>
       <div className={styles.rightSide}>
+        <PreviewHeader />
         <PreviewEducation />
         <PreviewExperience />
         <PreviewSkills />
