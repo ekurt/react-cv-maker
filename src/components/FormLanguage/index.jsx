@@ -19,10 +19,9 @@ export const FormLanguage = () => {
           name: "",
           level: {},
         }}
-        onSubmit={(values) => {
+        onSubmit={(values, actions) => {
           dispatch(setLanguages([...languages, { ...values }]));
-          values.name = "";
-          values.level = {};
+          actions.resetForm();
         }}
       >
         {({ handleSubmit, handleReset, handleChange, values }) => (

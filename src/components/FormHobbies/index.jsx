@@ -18,9 +18,9 @@ export const FormHobbies = () => {
         initialValues={{
           name: "",
         }}
-        onSubmit={(values) => {
+        onSubmit={(values, actions) => {
           dispatch(setHobbies([...hobbies, values.name]));
-          values.name = "";
+          actions.resetForm();
         }}
       >
         {({ handleSubmit, handleReset, handleChange, values }) => (

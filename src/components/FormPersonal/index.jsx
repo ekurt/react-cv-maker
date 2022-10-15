@@ -17,17 +17,18 @@ export const FormPersonal = () => {
         initialValues={{
           nameSurname: "Emre Kurt",
           title: "Front-End Web Developer",
-          photo: {},
+          photo: "",
           address: "Antalya / Turkey",
           gsm: "5345244208",
           letter: "hi@ekurt.dev",
           description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium nam, quod ratione accusamus ducimus soluta cumque numquam eaque, delectus fugit ea quam fugiat necessitatibus doloribus quis? Culpa omnis beatae tenetur.",
         }}
-        onSubmit={(values) => {
+        onSubmit={(values, actions) => {
           dispatch(
             setPersonal({ ...values, photo: URL.createObjectURL(values.photo) })
           );
+          actions.resetForm();
         }}
       >
         {({

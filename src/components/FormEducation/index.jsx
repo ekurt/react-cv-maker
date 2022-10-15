@@ -23,8 +23,9 @@ export const FormEducation = () => {
           from: "",
           to: "",
         }}
-        onSubmit={(values) => {
+        onSubmit={(values, actions) => {
           dispatch(setEducation([...education, { ...values }]));
+          actions.resetForm();
         }}
       >
         {({ handleSubmit, handleReset, handleChange, values }) => (
