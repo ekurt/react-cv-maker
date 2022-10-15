@@ -18,3 +18,4 @@ export { PreviewSkills } from "./PreviewSkills";
 export { PreviewProjects } from "./PreviewProjects";
 export { PreviewCourses } from "./PreviewCourses";
 export { PreviewReferences } from "./PreviewReferences";
+export { PreviewHeader } from "./PreviewHeader";
