@@ -3,21 +3,19 @@
 @tailwind utilities;
 
 ::selection {
-  background: rgba(190, 130, 255, 1);
-  color: #fff;
+  @apply bg-light text-white;
 }
 
 ::-webkit-scrollbar {
-  width: 4px;
-  height: 4px;
+  @apply h-1 w-1;
 }
 
 ::-webkit-scrollbar-track {
-  background: grey;
+  @apply bg-orange-200;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: white;
+  @apply bg-dark;
 }
 
 body {
