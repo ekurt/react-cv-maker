@@ -3,9 +3,9 @@
 }
 
 .leftSide {
-  @apply w-2/6 bg-light h-full p-6;
+  @apply w-2/6 bg-light h-auto min-h-full p-6;
 }
 
 .rightSide {
-  @apply w-4/6 bg-white h-full p-6;
+  @apply w-4/6 bg-white h-auto min-h-full p-6;
 }

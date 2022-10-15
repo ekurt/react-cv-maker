@@ -5,10 +5,25 @@ import styles from "./index.module.css";
 export const PreviewLanguage = () => {
   const { languages } = useSelector((state) => state.form);
 
+  let items;
+
+  if (languages.length !== 0) {
+    items = React.Children.toArray(
+      languages.map((item) => (
+        <div className={styles.item}>
+          <strong>{item.name}</strong> {item.level}
+        </div>
+      ))
+    );
+  }
+
   return (
-    <div>
+    <div className={styles.container}>
       {languages.length !== 0 && (
-        <pre>{JSON.stringify(languages, null, 2)}</pre>
+        <>
+          <div className={styles.title}>Languages</div>
+          {items}
+        </>
       )}
     </div>
   );

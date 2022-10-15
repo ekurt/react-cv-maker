@@ -9,7 +9,7 @@ export const PreviewPersonal = () => {
   );
 
   return (
-    <div className={styles.personal}>
+    <div className={styles.container}>
       {photo && (
         <div className={styles.photo}>
           <img className={styles.rounded} src={photo} alt="" />
@@ -17,9 +17,7 @@ export const PreviewPersonal = () => {
       )}
       {nameSurname && (
         <>
-          <div className={styles.title}>
-            Personal Information
-          </div>
+          <div className={styles.title}>Personal</div>
           <div className={styles.item}>
             <strong>Name Surname</strong> {nameSurname}
           </div>

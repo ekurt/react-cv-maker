@@ -1,5 +1,5 @@
-.personal {
-  @apply flex flex-col w-full;
+.container {
+  @apply flex flex-col w-full text-primary;
 }
 
 .photo {
@@ -11,7 +11,7 @@
 }
 
 .title {
-  @apply bg-dark p-2 mb-4 text-light uppercase font-bold text-center;
+  @apply bg-dark p-2 mb-4 text-light uppercase font-bold text-center tracking-widest;
 }
 
 .item {
