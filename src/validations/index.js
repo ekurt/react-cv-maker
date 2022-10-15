@@ -5,3 +5,4 @@ export { EducationSchema } from "./EducationSchema";
 export { ExperienceSchema } from "./ExperienceSchema";
 export { SkillsSchema } from "./SkillsSchema";
 export { ProjectsSchema } from "./ProjectsSchema";
+export { CoursesSchema } from "./CoursesSchema";
