@@ -16,11 +16,12 @@ export const FormCourses = () => {
       <Formik
         validationSchema={CoursesSchema}
         initialValues={{
-          name: "",
-          company: "",
-          description: "",
-          from: "",
-          to: "",
+          name: "Advanced JavaScript Course",
+          company: "Udemy",
+          description:
+            "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+          from: "Oct, 2018",
+          to: "Dec, 2018",
         }}
         onSubmit={(values, actions) => {
           dispatch(setCourses([...courses, { ...values }]));
