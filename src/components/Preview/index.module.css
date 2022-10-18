@@ -1,5 +1,5 @@
 .preview {
-  @apply w-3/5 h-full flex items-start justify-start overflow-auto;
+  @apply w-full h-full flex items-start justify-start overflow-auto;
 }
 
 .leftSide {

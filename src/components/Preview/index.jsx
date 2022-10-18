@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import {
   PreviewPersonal,
   PreviewLanguage,
@@ -13,9 +13,9 @@ import {
 } from "../index";
 import styles from "./index.module.css";
 
-export const Preview = () => {
+export const Preview = forwardRef((props, ref) => {
   return (
-    <div className={styles.preview}>
+    <div className={styles.preview} ref={ref}>
       <div className={styles.leftSide}>
         <PreviewPersonal />
         <PreviewLanguage />
@@ -32,4 +32,4 @@ export const Preview = () => {
       </div>
     </div>
   );
-};
+});

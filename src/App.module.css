@@ -1,3 +1,7 @@
 .app {
   @apply h-screen flex overflow-hidden;
 }
+
+.print {
+  @apply w-3/5;
+}
