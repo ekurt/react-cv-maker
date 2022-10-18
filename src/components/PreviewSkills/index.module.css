@@ -1,0 +1,19 @@
+.container {
+  @apply flex flex-col w-full text-primary px-6 mt-2;
+}
+
+.title {
+  @apply bg-dark p-2 mb-4 mt-4 text-light uppercase font-bold text-center tracking-widest;
+}
+
+.item {
+  @apply flex flex-col mb-4;
+}
+
+.itemHeader {
+  @apply flex justify-between;
+}
+
+.levels {
+  @apply flex gap-x-[2px];
+}

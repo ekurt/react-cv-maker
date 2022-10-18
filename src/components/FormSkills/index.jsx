@@ -16,8 +16,8 @@ export const FormSkills = () => {
       <Formik
         validationSchema={SkillsSchema}
         initialValues={{
-          name: "",
-          level: {},
+          name: "JavaScript",
+          level: 7,
         }}
         onSubmit={(values, actions) => {
           dispatch(setSkills([...skills, { ...values }]));
