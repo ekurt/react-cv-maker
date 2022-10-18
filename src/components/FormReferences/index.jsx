@@ -16,10 +16,10 @@ export const FormReferences = () => {
       <Formik
         validationSchema={ReferencesSchema}
         initialValues={{
-          name: "",
-          title: "",
-          gsm: "",
-          company: "",
+          name: "John Doe",
+          title: "Sr. Full-Stack Developer",
+          gsm: "+905425242635",
+          company: "JD Development",
         }}
         onSubmit={(values, actions) => {
           dispatch(setReferences([...references, { ...values }]));
