@@ -61,7 +61,6 @@ export const FormReferences = () => {
           </Form>
         )}
       </Formik>
-      <pre>{JSON.stringify(references, null, 2)}</pre>
     </div>
   );
 };
