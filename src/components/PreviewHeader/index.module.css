@@ -11,5 +11,5 @@
 }
 
 .description {
-  @apply w-full p-6;
+  @apply w-full px-6 mt-6;
 }
