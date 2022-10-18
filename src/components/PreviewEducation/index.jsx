@@ -11,7 +11,7 @@ export const PreviewEducation = () => {
     items = React.Children.toArray(
       education.map((item) => (
         <div className={styles.item}>
-          <div className="flex justify-between">
+          <div className={styles.itemHeader}>
             <strong>
               {item.degree} / {item.subject}
             </strong>

@@ -11,7 +11,7 @@ export const PreviewExperience = () => {
     items = React.Children.toArray(
       experience.map((item) => (
         <div className={styles.item}>
-          <div className="flex justify-between">
+          <div className={styles.itemHeader}>
             <strong>{item.position}</strong>
             <span>
               {item.from} - {item.to}
@@ -20,7 +20,7 @@ export const PreviewExperience = () => {
           <div>
             {item.company}, {item.city}
           </div>
-          <div className="text-sm">{item.description}</div>
+          <div className={styles.textsm}>{item.description}</div>
         </div>
       ))
     );
