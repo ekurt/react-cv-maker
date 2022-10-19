@@ -24,7 +24,7 @@ export const FormExperience = () => {
           to: "",
         }}
         onSubmit={(values, actions) => {
-          dispatch(setExperience([...experience, { ...values }]));
+          dispatch(setExperience([{ ...values }, ...experience]));
           actions.resetForm();
         }}
       >

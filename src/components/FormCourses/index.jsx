@@ -23,7 +23,7 @@ export const FormCourses = () => {
           to: "",
         }}
         onSubmit={(values, actions) => {
-          dispatch(setCourses([...courses, { ...values }]));
+          dispatch(setCourses([{ ...values }, ...courses]));
           actions.resetForm();
         }}
       >

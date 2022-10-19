@@ -27,7 +27,6 @@ export const FormPersonal = () => {
           dispatch(
             setPersonal({ ...values, photo: URL.createObjectURL(values.photo) })
           );
-          //actions.resetForm();
         }}
       >
         {({

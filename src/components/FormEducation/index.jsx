@@ -24,7 +24,7 @@ export const FormEducation = () => {
           to: "",
         }}
         onSubmit={(values, actions) => {
-          dispatch(setEducation([...education, { ...values }]));
+          dispatch(setEducation([{ ...values }, ...education]));
           actions.resetForm();
         }}
       >

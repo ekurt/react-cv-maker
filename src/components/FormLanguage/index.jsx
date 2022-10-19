@@ -20,7 +20,7 @@ export const FormLanguage = () => {
           level: "",
         }}
         onSubmit={(values, actions) => {
-          dispatch(setLanguages([...languages, { ...values }]));
+          dispatch(setLanguages([{ ...values }, ...languages]));
           actions.resetForm();
         }}
       >
