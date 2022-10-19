@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 ::selection {
-  @apply bg-light text-white;
+  @apply bg-dark text-white;
 }
 
 ::-webkit-scrollbar {
