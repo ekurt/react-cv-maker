@@ -9,18 +9,24 @@ export const PreviewProjects = () => {
 
   if (projects.length !== 0) {
     items = React.Children.toArray(
-      projects.map((item) => (
-        <div className={styles.item}>
-          <div className={styles.itemHeader}>
-            <strong>{item.name}</strong>
+      projects.map((item) => {
+        let prefix = "";
+
+        if (!item.link.includes("https://") && !item.link.includes("http://"))
+          prefix = "https://";
+
+        return (
+          <div className={styles.item}>
+            <div className={styles.itemHeader}>
+              <strong>{item.name}</strong>
+              <a href={prefix + item.link} target="_blank">
+                {item.link}
+              </a>
+            </div>
+            <div className={styles.textsm}>{item.description}</div>
           </div>
-          <div className={styles.textsm}>
-            <a href={item.link} target="_blank">
-              {item.link}
-            </a>
-          </div>
-        </div>
-      ))
+        );
+      })
     );
   }
 

@@ -11,7 +11,7 @@
 }
 
 .itemHeader {
-  @apply flex;
+  @apply flex justify-between;
 }
 
 .textsm {

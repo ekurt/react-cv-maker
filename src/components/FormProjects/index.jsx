@@ -1,6 +1,6 @@
 import React from "react";
 import { Formik, Form } from "formik";
-import { Input, Button } from "../_form";
+import { Input, Button, Textarea } from "../_form";
 import styles from "./index.module.css";
 import { ProjectsSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
@@ -18,6 +18,7 @@ export const FormProjects = ({ handleResetData }) => {
         initialValues={{
           name: "",
           link: "",
+          description: "",
         }}
         onSubmit={(values, actions) => {
           dispatch(setProjects([...projects, { ...values }]));
@@ -37,6 +38,13 @@ export const FormProjects = ({ handleResetData }) => {
               value={values.link}
               name="link"
               placeholder="Project Link"
+            />
+            <Textarea
+              rows={3}
+              onChange={handleChange}
+              value={values.description}
+              name="description"
+              placeholder="Description"
             />
             <Button type="submit" variant="info" disabled={!dirty}>
               ADD

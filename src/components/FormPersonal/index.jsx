@@ -30,7 +30,10 @@ export const FormPersonal = () => {
         }}
         onSubmit={(values) => {
           dispatch(
-            setPersonal({ ...values, photo: URL.createObjectURL(values.photo) })
+            setPersonal({
+              ...values,
+              photo: values.photo ? URL.createObjectURL(values.photo) : "",
+            })
           );
         }}
       >

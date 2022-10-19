@@ -132,10 +132,14 @@ export const FormButtons = ({ handlePrint }) => {
         {
           name: "Sample Project",
           link: "https://github.com/johndoe/sample-project",
+          description:
+            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur eligendi cumque sunt incidunt atque labore assumenda ratione tempore officia!",
         },
         {
           name: "Sample Project",
           link: "https://github.com/johndoe/sample-project",
+          description:
+            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur eligendi cumque sunt incidunt atque labore assumenda ratione tempore officia!",
         },
       ])
     );

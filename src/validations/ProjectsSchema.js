@@ -8,4 +8,5 @@ export const ProjectsSchema = Yup.object().shape({
       "Not a valid URL address"
     )
     .required(),
+  description: Yup.string(),
 });

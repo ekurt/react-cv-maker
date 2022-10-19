@@ -16,7 +16,11 @@ export const PreviewSocial = () => {
         else if (item.name === "Github") prefix = "https://github.com/";
         else if (item.name === "LinkedIn")
           prefix = "https://www.linkedin.com/in/";
-        else prefix = "";
+        else {
+          if (!item.link.includes("https://") && !item.link.includes("http://"))
+            prefix = "https://";
+          else prefix = "";
+        }
 
         return (
           <>
@@ -25,7 +29,9 @@ export const PreviewSocial = () => {
             </div>
             <div>
               <a href={prefix + item.link} target="_blank">
-                {prefix ? "@" : ""}
+                {prefix !== "https://" && prefix !== "http://" && prefix !== ""
+                  ? "@"
+                  : ""}
                 {item.link}
               </a>
             </div>
