@@ -35,12 +35,14 @@ export const PreviewPersonal = () => {
       )}
       {gsm && (
         <div className={styles.item}>
-          <strong>Mobile Phone</strong> {gsm}
+          <strong>Mobile Phone</strong>
+          <a href={`tel:${gsm}`}>{gsm}</a>
         </div>
       )}
       {letter && (
         <div className={styles.item}>
-          <strong>Email Address</strong> {letter}
+          <strong>Email Address</strong>
+          <a href={`mailto:${letter}`}>{letter}</a>
         </div>
       )}
     </div>

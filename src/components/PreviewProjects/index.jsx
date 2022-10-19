@@ -14,7 +14,11 @@ export const PreviewProjects = () => {
           <div className={styles.itemHeader}>
             <strong>{item.name}</strong>
           </div>
-          <div className={styles.textsm}>{item.link}</div>
+          <div className={styles.textsm}>
+            <a href={item.link} target="_blank">
+              {item.link}
+            </a>
+          </div>
         </div>
       ))
     );
