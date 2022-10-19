@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   setCourses,
   setEducation,
@@ -16,6 +16,7 @@ import styles from "./index.module.css";
 
 export const FormButtons = ({ handlePrint }) => {
   const dispatch = useDispatch();
+  const { personal } = useSelector((state) => state.form);
 
   const uploadSample = () => {
     dispatch(
@@ -168,15 +169,20 @@ export const FormButtons = ({ handlePrint }) => {
   return (
     <div className={styles.container}>
       <Button onClick={uploadSample} variant="success">
-        UPLOAD SAMPLE
+        FILL SAMPLE
       </Button>
-      <Button onClick={null} variant="danger">
-        CLEAR ALL FORMS
-      </Button>
-      <Button onClick={clearData} variant="danger">
+      <Button
+        onClick={clearData}
+        variant="danger"
+        disabled={Object.keys(personal).length === 0}
+      >
         CLEAR DATA
       </Button>
-      <Button onClick={handlePrint} variant="info">
+      <Button
+        onClick={handlePrint}
+        variant="info"
+        disabled={Object.keys(personal).length === 0}
+      >
         SAVE AS PDF
       </Button>
     </div>

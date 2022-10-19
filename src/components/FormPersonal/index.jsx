@@ -27,7 +27,7 @@ export const FormPersonal = () => {
           dispatch(
             setPersonal({ ...values, photo: URL.createObjectURL(values.photo) })
           );
-          actions.resetForm();
+          //actions.resetForm();
         }}
       >
         {({
@@ -35,7 +35,6 @@ export const FormPersonal = () => {
           handleReset,
           handleChange,
           values,
-          isSubmitting,
         }) => (
           <Form onSubmit={handleSubmit} autoComplete="off" role="presentation">
             <Input
@@ -77,7 +76,7 @@ export const FormPersonal = () => {
               name="description"
               placeholder="Description"
             />
-            <Button type="submit" variant="info" disabled={isSubmitting}>
+            <Button type="submit" variant="info">
               ADD
             </Button>
             <Button type="reset" variant="danger" onClick={handleReset}>
