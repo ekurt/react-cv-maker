@@ -19,7 +19,11 @@ export const PreviewProjects = () => {
           <div className={styles.item}>
             <div className={styles.itemHeader}>
               <strong>{item.name}</strong>
-              <a href={prefix + item.link} target="_blank">
+              <a
+                href={prefix + item.link}
+                className={styles.itemLink}
+                target="_blank"
+              >
                 {item.link}
               </a>
             </div>

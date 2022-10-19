@@ -22,3 +22,4 @@ export { PreviewHeader } from "./PreviewHeader";
 export { FormButtons } from "./FormButtons";
 export { FormSocial } from "./FormSocial";
 export { PreviewSocial } from "./PreviewSocial";
+export { FormMobile } from "./FormMobile";

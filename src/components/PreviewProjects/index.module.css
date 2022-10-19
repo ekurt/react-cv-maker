@@ -17,3 +17,7 @@
 .textsm {
   @apply text-sm;
 }
+
+.itemLink {
+  @apply break-words overflow-hidden;
+}

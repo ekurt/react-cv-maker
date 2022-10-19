@@ -1,0 +1,7 @@
+.mobile {
+  @apply w-full bg-dark flex lg:hidden justify-center items-center text-light text-center p-4 mb-5 shadow-lg shadow-black;
+}
+
+.mark {
+  @apply bg-white text-dark font-bold px-2 py-1 mx-1;
+}
