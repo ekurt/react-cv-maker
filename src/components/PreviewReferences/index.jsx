@@ -13,7 +13,8 @@ export const PreviewReferences = () => {
         <div className={styles.item}>
           <div className={styles.itemHeader}>
             <strong>
-              {item.name}, {item.title}
+              {item.name}
+              {item.title ? "," : null} {item.title}
             </strong>
             <span>{item.company}</span>
           </div>

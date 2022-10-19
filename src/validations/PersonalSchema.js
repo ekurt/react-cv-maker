@@ -6,23 +6,23 @@ const SUPPORTED_FORMATS = ["image/jpg", "image/jpeg", "image/png"];
 export const PersonalSchema = Yup.object().shape({
   nameSurname: Yup.string().required(),
   title: Yup.string().required(),
-  description: Yup.string().required().min(200),
+  description: Yup.string().required(),
   address: Yup.string(),
   gsm: Yup.number(),
   letter: Yup.string().email().required(),
   photo: Yup.mixed()
-    .test({
+    /* .test({
       message: "This field is a required field",
       test: (file) => file?.name,
-    })
-    .test(
+    }) */
+    /* .test(
       "fileFormat",
       "You can only upload photo in `jpeg`, `jpg` and `png` formats",
       (value) => value && SUPPORTED_FORMATS.includes(value.type)
-    )
-    .test(
+    ) */
+   /*  .test(
       "fileSize",
       "Photo size must be less than 5MB",
       (value) => value && value.size <= FILE_SIZE
-    ),
+    ), */
 });
