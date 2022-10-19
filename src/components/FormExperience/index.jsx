@@ -16,13 +16,12 @@ export const FormExperience = () => {
       <Formik
         validationSchema={ExperienceSchema}
         initialValues={{
-          company: "Egem Yazılım",
-          position: "Full-Stack Developer",
-          city: "Antalya/Turkey",
-          description:
-            "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur tempora repellat reiciendis quis pariatur vero impedit dicta nobis eos similique facilis!",
-          from: "Nov, 2016",
-          to: "Sep, 2019",
+          company: "",
+          position: "",
+          city: "",
+          description: "",
+          from: "",
+          to: "",
         }}
         onSubmit={(values, actions) => {
           dispatch(setExperience([...experience, { ...values }]));

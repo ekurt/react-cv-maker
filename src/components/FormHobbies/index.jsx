@@ -16,7 +16,7 @@ export const FormHobbies = () => {
       <Formik
         validationSchema={HobbiesSchema}
         initialValues={{
-          name: "Astronomy",
+          name: "",
         }}
         onSubmit={(values, actions) => {
           dispatch(setHobbies([...hobbies, values.name]));

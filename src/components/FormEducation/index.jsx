@@ -16,12 +16,12 @@ export const FormEducation = () => {
       <Formik
         validationSchema={EducationSchema}
         initialValues={{
-          school: "Akdeniz University",
-          subject: "Computer Programming",
-          city: "Antalya/Turkey",
-          degree: "Associate Degree",
-          from: "Sep, 2013",
-          to: "Jun, 2015",
+          school: "",
+          subject: "",
+          city: "",
+          degree: "",
+          from: "",
+          to: "",
         }}
         onSubmit={(values, actions) => {
           dispatch(setEducation([...education, { ...values }]));

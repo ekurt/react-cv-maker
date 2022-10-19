@@ -16,8 +16,8 @@ export const FormLanguage = () => {
       <Formik
         validationSchema={LanguageSchema}
         initialValues={{
-          name: "English",
-          level: "B1",
+          name: "",
+          level: "",
         }}
         onSubmit={(values, actions) => {
           dispatch(setLanguages([...languages, { ...values }]));

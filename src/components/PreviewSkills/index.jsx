@@ -13,10 +13,10 @@ export const PreviewSkills = () => {
       skills.map((item) => {
         const levels = [];
         for (let index = 1; index <= item.level; index++) {
-          levels.push(<FaCircle />);
+          levels.push(React.Children.toArray(<FaCircle />));
         }
         for (let index = item.level; index < 10; index++) {
-          levels.push(<FaRegCircle />);
+          levels.push(React.Children.toArray(<FaRegCircle />));
         }
         return (
           <div className={styles.item}>

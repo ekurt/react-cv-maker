@@ -16,8 +16,8 @@ export const FormProjects = () => {
       <Formik
         validationSchema={ProjectsSchema}
         initialValues={{
-          name: "Sample Project",
-          link: "https://github.com/ekurt/sample-project",
+          name: "",
+          link: "",
         }}
         onSubmit={(values, actions) => {
           dispatch(setProjects([...projects, { ...values }]));

@@ -15,14 +15,13 @@ export const FormPersonal = () => {
       <Formik
         validationSchema={PersonalSchema}
         initialValues={{
-          nameSurname: "Emre Kurt",
-          title: "Front-End Web Developer",
+          nameSurname: "",
+          title: "",
           photo: "",
-          address: "Antalya / Turkey",
-          gsm: "5345244208",
-          letter: "hi@ekurt.dev",
-          description:
-            "Eğitim hayatım ve tecrübelerim doğrultusunda farklı insanlarla birlikte çalışma, bir takımda yer alma ve birlikte üretebilmeyi öğrenme fırsatım oldu. Bu nedenle takımınıza kolaylıkla adapte olacağımı düşünüyorum. İşini severek yapan ve detayları çok önemseyen biriyim. İnsan ilişkileri noktasında esnek olmanın bana verimlilik olarak geri döndüğünü sıklıkla tecrübe ettim. Yeni şeyler öğrenmeyi, yeteneklerimi geliştirmeyi çok önemsiyor; bu amaçla insan ilişkilerinin öğreticiliğinden faydalanmak gerektiğini düşünüyorum. Ekibimdeki insanlarla bilgi alışverişinde bulunmak benim için bu nedenle çok önemlidir. Fikir geliştirmenin zihni, dolayısıyla bedeni sürekli aktif tuttuğunun bilincinde olarak hem iş hem de bireysel hayatta yaratıcı olmanın önemli olduğunu düşünüyorum ve yaratıcılığım ile size katkı sağlayacağıma inanıyorum.",
+          address: "",
+          gsm: "",
+          letter: "",
+          description: "",
         }}
         onSubmit={(values, actions) => {
           dispatch(
