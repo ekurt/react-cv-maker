@@ -19,7 +19,7 @@ export const FormHobbies = () => {
           name: "",
         }}
         onSubmit={(values, actions) => {
-          dispatch(setHobbies([values.name, ...hobbies]));
+          dispatch(setHobbies([...hobbies, values.name]));
           actions.resetForm();
         }}
       >

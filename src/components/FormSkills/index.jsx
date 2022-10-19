@@ -20,7 +20,7 @@ export const FormSkills = () => {
           level: 0,
         }}
         onSubmit={(values, actions) => {
-          dispatch(setSkills([{ ...values }, ...skills]));
+          dispatch(setSkills([...skills, { ...values }]));
           actions.resetForm();
         }}
       >

@@ -22,7 +22,7 @@ export const FormReferences = () => {
           company: "",
         }}
         onSubmit={(values, actions) => {
-          dispatch(setReferences([{ ...values }, ...references]));
+          dispatch(setReferences([...references, { ...values }]));
           actions.resetForm();
         }}
       >

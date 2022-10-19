@@ -20,7 +20,7 @@ export const FormProjects = () => {
           link: "",
         }}
         onSubmit={(values, actions) => {
-          dispatch(setProjects([{ ...values }, ...projects]));
+          dispatch(setProjects([...projects, { ...values }]));
           actions.resetForm();
         }}
       >
