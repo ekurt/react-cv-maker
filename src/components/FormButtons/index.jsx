@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   setCourses,
   setEducation,
@@ -16,18 +16,6 @@ import styles from "./index.module.css";
 
 export const FormButtons = ({ handlePrint }) => {
   const dispatch = useDispatch();
-
-  const {
-    personal,
-    languages,
-    hobbies,
-    education,
-    experience,
-    skills,
-    projects,
-    courses,
-    references,
-  } = useSelector((state) => state.form);
 
   const uploadSample = () => {
     dispatch(
@@ -163,6 +151,20 @@ export const FormButtons = ({ handlePrint }) => {
     );
   };
 
+  const clearData = () => {
+    if (window.confirm("Are you sure all data will be deleted?")) {
+      dispatch(setCourses([]));
+      dispatch(setEducation([]));
+      dispatch(setExperience([]));
+      dispatch(setHobbies([]));
+      dispatch(setLanguages([]));
+      dispatch(setPersonal({}));
+      dispatch(setProjects([]));
+      dispatch(setReferences([]));
+      dispatch(setSkills([]));
+    }
+  };
+
   return (
     <div className={styles.container}>
       <Button onClick={uploadSample} variant="success">
@@ -170,6 +172,9 @@ export const FormButtons = ({ handlePrint }) => {
       </Button>
       <Button onClick={null} variant="danger">
         CLEAR ALL FORMS
+      </Button>
+      <Button onClick={clearData} variant="danger">
+        CLEAR DATA
       </Button>
       <Button onClick={handlePrint} variant="info">
         SAVE AS PDF
