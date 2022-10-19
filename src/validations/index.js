@@ -7,3 +7,4 @@ export { SkillsSchema } from "./SkillsSchema";
 export { ProjectsSchema } from "./ProjectsSchema";
 export { CoursesSchema } from "./CoursesSchema";
 export { ReferencesSchema } from "./ReferencesSchema";
+export { SocialSchema } from "./SocialSchema";

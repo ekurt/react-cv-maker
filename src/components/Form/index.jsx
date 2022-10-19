@@ -10,6 +10,7 @@ import {
   FormProjects,
   FormCourses,
   FormReferences,
+  FormSocial,
 } from "../index";
 import styles from "./index.module.css";
 
@@ -18,6 +19,7 @@ export const Form = ({ handlePrint }) => {
     <div className={styles.form}>
       <FormButtons handlePrint={handlePrint} />
       <FormPersonal />
+      <FormSocial />
       <FormLanguage />
       <FormHobbies />
       <FormEducation />
