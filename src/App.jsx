@@ -10,7 +10,7 @@ function App() {
   });
 
   const getPageMargins = () => {
-    return `@page { margin: 0 0 50px 0 !important; }`;
+    return `@page { margin: 0 0 0 0 !important; }`;
   };
 
   return (

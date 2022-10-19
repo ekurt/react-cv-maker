@@ -15,19 +15,6 @@ export const PreviewPersonal = () => {
           <img className={styles.rounded} src={photo} alt="" />
         </div>
       )}
-      {nameSurname && (
-        <>
-          <div className={styles.title}>Personal</div>
-          <div className={styles.item}>
-            <strong>Name Surname</strong> {nameSurname}
-          </div>
-        </>
-      )}
-      {title && (
-        <div className={styles.item}>
-          <strong>Title</strong> {title}
-        </div>
-      )}
       {address && (
         <div className={styles.item}>
           <strong>Address</strong> {address}

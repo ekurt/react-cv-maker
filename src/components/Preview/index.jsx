@@ -1,6 +1,7 @@
 import React, { forwardRef } from "react";
 import {
   PreviewPersonal,
+  PreviewSocial,
   PreviewLanguage,
   PreviewHobbies,
   PreviewHeader,
@@ -18,6 +19,7 @@ export const Preview = forwardRef((props, ref) => {
     <div className={styles.preview} ref={ref}>
       <div className={styles.leftSide}>
         <PreviewPersonal />
+        <PreviewSocial />
         <PreviewLanguage />
         <PreviewHobbies />
       </div>

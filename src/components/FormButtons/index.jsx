@@ -10,6 +10,7 @@ import {
   setProjects,
   setReferences,
   setSkills,
+  setSocial,
 } from "../../stores/form";
 import { Button } from "../_form";
 import styles from "./index.module.css";
@@ -30,6 +31,30 @@ export const FormButtons = ({ handlePrint }) => {
         description:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta soluta quasi perspiciatis placeat voluptas, inventore vero atque minus cum quae unde quis qui quia odit suscipit ipsa dignissimos dolorum in! Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta soluta quasi perspiciatis placeat voluptas, inventore vero atque minus cum quae unde quis qui quia odit suscipit ipsa dignissimos dolorum in!",
       })
+    );
+    dispatch(
+      setSocial([
+        {
+          name: "Twitter",
+          link: "johndoe",
+        },
+        {
+          name: "Github",
+          link: "johndoe",
+        },
+        {
+          name: "LinkedIn",
+          link: "johndoe",
+        },
+        {
+          name: "Website",
+          link: "https://johndoe.dev",
+        },
+        {
+          name: "URL",
+          link: "https://example.com",
+        },
+      ])
     );
     dispatch(
       setLanguages([
@@ -163,6 +188,7 @@ export const FormButtons = ({ handlePrint }) => {
       dispatch(setProjects([]));
       dispatch(setReferences([]));
       dispatch(setSkills([]));
+      dispatch(setSocial([]));
     }
   };
 
