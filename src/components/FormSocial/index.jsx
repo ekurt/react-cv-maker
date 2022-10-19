@@ -6,13 +6,9 @@ import { SocialSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setSocial } from "../../stores/form";
 
-export const FormSocial = () => {
+export const FormSocial = ({ handleResetData }) => {
   const dispatch = useDispatch();
   const { social } = useSelector((state) => state.form);
-
-  const handleResetData = () => {
-    dispatch(setSocial([]));
-  };
 
   return (
     <div className={styles.social}>
@@ -61,7 +57,9 @@ export const FormSocial = () => {
             <Button
               type="button"
               variant="danger"
-              onClick={handleResetData}
+              onClick={() => {
+                handleResetData(setSocial);
+              }}
               disabled={social.length === 0}
             >
               CLEAR DATA

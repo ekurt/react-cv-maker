@@ -6,7 +6,7 @@ import { ProjectsSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setProjects } from "../../stores/form";
 
-export const FormProjects = () => {
+export const FormProjects = ({ handleResetData }) => {
   const dispatch = useDispatch();
   const { projects } = useSelector((state) => state.form);
 
@@ -24,7 +24,7 @@ export const FormProjects = () => {
           actions.resetForm();
         }}
       >
-        {({ handleSubmit, handleReset, handleChange, values }) => (
+        {({ handleSubmit, handleReset, handleChange, values, dirty }) => (
           <Form onSubmit={handleSubmit} autoComplete="off" role="presentation">
             <Input
               onChange={handleChange}
@@ -38,11 +38,26 @@ export const FormProjects = () => {
               name="link"
               placeholder="Project Link"
             />
-            <Button type="submit" variant="info">
+            <Button type="submit" variant="info" disabled={!dirty}>
               ADD
             </Button>
-            <Button type="reset" variant="danger" onClick={handleReset}>
-              CLEAR
+            <Button
+              type="reset"
+              variant="danger"
+              onClick={handleReset}
+              disabled={!dirty}
+            >
+              CLEAR FORM
+            </Button>
+            <Button
+              type="button"
+              variant="danger"
+              onClick={() => {
+                handleResetData(setProjects);
+              }}
+              disabled={projects.length === 0}
+            >
+              CLEAR DATA
             </Button>
           </Form>
         )}

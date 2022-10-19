@@ -6,7 +6,7 @@ import { ExperienceSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setExperience } from "../../stores/form";
 
-export const FormExperience = () => {
+export const FormExperience = ({ handleResetData }) => {
   const dispatch = useDispatch();
   const { experience } = useSelector((state) => state.form);
 
@@ -28,7 +28,7 @@ export const FormExperience = () => {
           actions.resetForm();
         }}
       >
-        {({ handleSubmit, handleReset, handleChange, values }) => (
+        {({ handleSubmit, handleReset, handleChange, values, dirty }) => (
           <Form onSubmit={handleSubmit} autoComplete="off" role="presentation">
             <Input
               onChange={handleChange}
@@ -68,11 +68,26 @@ export const FormExperience = () => {
               name="description"
               placeholder="Description"
             />
-            <Button type="submit" variant="info">
+            <Button type="submit" variant="info" disabled={!dirty}>
               ADD
             </Button>
-            <Button type="reset" variant="danger" onClick={handleReset}>
-              CLEAR
+            <Button
+              type="reset"
+              variant="danger"
+              onClick={handleReset}
+              disabled={!dirty}
+            >
+              CLEAR FORM
+            </Button>
+            <Button
+              type="button"
+              variant="danger"
+              onClick={() => {
+                handleResetData(setExperience);
+              }}
+              disabled={experience.length === 0}
+            >
+              CLEAR DATA
             </Button>
           </Form>
         )}

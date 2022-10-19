@@ -6,7 +6,7 @@ import { EducationSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setEducation } from "../../stores/form";
 
-export const FormEducation = () => {
+export const FormEducation = ({ handleResetData }) => {
   const dispatch = useDispatch();
   const { education } = useSelector((state) => state.form);
 
@@ -28,7 +28,7 @@ export const FormEducation = () => {
           actions.resetForm();
         }}
       >
-        {({ handleSubmit, handleReset, handleChange, values }) => (
+        {({ handleSubmit, handleReset, handleChange, values, dirty }) => (
           <Form onSubmit={handleSubmit} autoComplete="off" role="presentation">
             <Input
               onChange={handleChange}
@@ -66,11 +66,26 @@ export const FormEducation = () => {
               name="to"
               placeholder="To"
             />
-            <Button type="submit" variant="info">
+            <Button type="submit" variant="info" disabled={!dirty}>
               ADD
             </Button>
-            <Button type="reset" variant="danger" onClick={handleReset}>
-              CLEAR
+            <Button
+              type="reset"
+              variant="danger"
+              onClick={handleReset}
+              disabled={!dirty}
+            >
+              CLEAR FORM
+            </Button>
+            <Button
+              type="button"
+              variant="danger"
+              onClick={() => {
+                handleResetData(setEducation);
+              }}
+              disabled={education.length === 0}
+            >
+              CLEAR DATA
             </Button>
           </Form>
         )}

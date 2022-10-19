@@ -6,7 +6,7 @@ import { SkillsSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setSkills } from "../../stores/form";
 
-export const FormSkills = () => {
+export const FormSkills = ({ handleResetData }) => {
   const dispatch = useDispatch();
   const { skills } = useSelector((state) => state.form);
 
@@ -24,7 +24,7 @@ export const FormSkills = () => {
           actions.resetForm();
         }}
       >
-        {({ handleSubmit, handleReset, handleChange, values }) => (
+        {({ handleSubmit, handleReset, handleChange, values, dirty }) => (
           <Form onSubmit={handleSubmit} autoComplete="off" role="presentation">
             <Input
               onChange={handleChange}
@@ -48,11 +48,26 @@ export const FormSkills = () => {
                 { key: 10, value: "100 / 100" },
               ]}
             />
-            <Button type="submit" variant="info">
+            <Button type="submit" variant="info" disabled={!dirty}>
               ADD
             </Button>
-            <Button type="reset" variant="danger" onClick={handleReset}>
-              CLEAR
+            <Button
+              type="reset"
+              variant="danger"
+              onClick={handleReset}
+              disabled={!dirty}
+            >
+              CLEAR FORM
+            </Button>
+            <Button
+              type="button"
+              variant="danger"
+              onClick={() => {
+                handleResetData(setSkills);
+              }}
+              disabled={skills.length === 0}
+            >
+              CLEAR DATA
             </Button>
           </Form>
         )}

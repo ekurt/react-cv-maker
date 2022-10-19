@@ -6,7 +6,7 @@ import { HobbiesSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setHobbies } from "../../stores/form";
 
-export const FormHobbies = () => {
+export const FormHobbies = ({ handleResetData }) => {
   const dispatch = useDispatch();
   const { hobbies } = useSelector((state) => state.form);
 
@@ -23,7 +23,7 @@ export const FormHobbies = () => {
           actions.resetForm();
         }}
       >
-        {({ handleSubmit, handleReset, handleChange, values }) => (
+        {({ handleSubmit, handleReset, handleChange, values, dirty }) => (
           <Form onSubmit={handleSubmit} autoComplete="off" role="presentation">
             <Input
               onChange={handleChange}
@@ -32,11 +32,26 @@ export const FormHobbies = () => {
               placeholder="Hobby"
               sizeFull={true}
             />
-            <Button type="submit" variant="info">
+            <Button type="submit" variant="info" disabled={!dirty}>
               ADD
             </Button>
-            <Button type="reset" variant="danger" onClick={handleReset}>
-              CLEAR
+            <Button
+              type="reset"
+              variant="danger"
+              onClick={handleReset}
+              disabled={!dirty}
+            >
+              CLEAR FORM
+            </Button>
+            <Button
+              type="button"
+              variant="danger"
+              onClick={() => {
+                handleResetData(setHobbies);
+              }}
+              disabled={hobbies.length === 0}
+            >
+              CLEAR DATA
             </Button>
           </Form>
         )}

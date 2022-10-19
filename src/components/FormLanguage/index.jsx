@@ -6,7 +6,7 @@ import { LanguageSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setLanguages } from "../../stores/form";
 
-export const FormLanguage = () => {
+export const FormLanguage = ({ handleResetData }) => {
   const dispatch = useDispatch();
   const { languages } = useSelector((state) => state.form);
 
@@ -24,7 +24,7 @@ export const FormLanguage = () => {
           actions.resetForm();
         }}
       >
-        {({ handleSubmit, handleReset, handleChange, values }) => (
+        {({ handleSubmit, handleReset, handleChange, values, dirty }) => (
           <Form onSubmit={handleSubmit} autoComplete="off" role="presentation">
             <Input
               onChange={handleChange}
@@ -44,11 +44,26 @@ export const FormLanguage = () => {
                 { key: "C2", value: "C2" },
               ]}
             />
-            <Button type="submit" variant="info">
+            <Button type="submit" variant="info" disabled={!dirty}>
               ADD
             </Button>
-            <Button type="reset" variant="danger" onClick={handleReset}>
-              CLEAR
+            <Button
+              type="reset"
+              variant="danger"
+              onClick={handleReset}
+              disabled={!dirty}
+            >
+              CLEAR FORM
+            </Button>
+            <Button
+              type="button"
+              variant="danger"
+              onClick={() => {
+                handleResetData(setLanguages);
+              }}
+              disabled={languages.length === 0}
+            >
+              CLEAR DATA
             </Button>
           </Form>
         )}

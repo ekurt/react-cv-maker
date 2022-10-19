@@ -13,7 +13,7 @@ export default function Select({ label, sizeFull = false, options, ...props }) {
     >
       <select
         className={classNames({
-          "w-full border-b-2 text-white bg-transparent h-8 text-md px-2 outline-none flex-shrink-0 appearance-none": true,
+          "w-full border-b-2 text-white bg-transparent h-[30px] text-md px-2 outline-none flex-shrink-0 appearance-none transition-all duration-1000 ease-linear": true,
           "border-white border-opacity-30": !meta.error,
           "border-red-600 border-opacity-100": meta.error,
         })}
@@ -30,7 +30,7 @@ export default function Select({ label, sizeFull = false, options, ...props }) {
         ))}
       </select>
       {meta.error && (
-        <span className="mt-2 px-1 text-sm bg-red-600 text-white">
+        <span className="mt-1 px-1 text-sm bg-red-600 text-white">
           {meta.error}
         </span>
       )}

@@ -6,7 +6,7 @@ import { ReferencesSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setReferences } from "../../stores/form";
 
-export const FormReferences = () => {
+export const FormReferences = ({ handleResetData }) => {
   const dispatch = useDispatch();
   const { references } = useSelector((state) => state.form);
 
@@ -26,7 +26,7 @@ export const FormReferences = () => {
           actions.resetForm();
         }}
       >
-        {({ handleSubmit, handleReset, handleChange, values }) => (
+        {({ handleSubmit, handleReset, handleChange, values, dirty }) => (
           <Form onSubmit={handleSubmit} autoComplete="off" role="presentation">
             <Input
               onChange={handleChange}
@@ -52,11 +52,26 @@ export const FormReferences = () => {
               name="title"
               placeholder="Reference Title"
             />
-            <Button type="submit" variant="info">
+            <Button type="submit" variant="info" disabled={!dirty}>
               ADD
             </Button>
-            <Button type="reset" variant="danger" onClick={handleReset}>
-              CLEAR
+            <Button
+              type="reset"
+              variant="danger"
+              onClick={handleReset}
+              disabled={!dirty}
+            >
+              CLEAR FORM
+            </Button>
+            <Button
+              type="button"
+              variant="danger"
+              onClick={() => {
+                handleResetData(setReferences);
+              }}
+              disabled={references.length === 0}
+            >
+              CLEAR DATA
             </Button>
           </Form>
         )}
