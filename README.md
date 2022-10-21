@@ -4,8 +4,6 @@
 
 🔗 Live Demo: [cv-maker.ekurt.dev](https://cv-maker.ekurt.dev)
 
-![cv-maker-app](https://cv-maker.ekurt.dev/assets/images/cv-maker-app.gif)
-
 ## ✨ Features
 
 - Fill Sample
