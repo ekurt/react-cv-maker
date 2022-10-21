@@ -4,7 +4,7 @@
 
 🔗 Live Demo: [cv-maker.ekurt.dev](https://cv-maker.ekurt.dev)
 
-<img src="https://cv-maker.ekurt.dev/assets/images/cv-maker-app.gif" />
+![cv-maker-app](https://cv-maker.ekurt.dev/assets/images/cv-maker-app.gif)
 
 ## ✨ Features
 
