@@ -1,0 +1,11 @@
+.cardDetail {
+  @apply mx-2 mt-4 flex flex-col;
+}
+
+.hr {
+  @apply mb-4;
+}
+
+.item {
+  @apply bg-dark flex justify-between items-center p-2 border-b-2 border-b-primary text-light;
+}

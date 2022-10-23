@@ -24,3 +24,4 @@ export { FormSocial } from "./FormSocial";
 export { PreviewSocial } from "./PreviewSocial";
 export { FormMobile } from "./FormMobile";
 export { Card } from "./_Card";
+export { CardDetail } from "./_CardDetail";
