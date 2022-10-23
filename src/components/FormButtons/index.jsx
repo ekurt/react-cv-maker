@@ -1,3 +1,4 @@
+import { nanoid } from "nanoid";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -35,22 +36,27 @@ export const FormButtons = ({ handlePrint }) => {
     dispatch(
       setSocial([
         {
+          _id: nanoid(),
           name: "Twitter",
           link: "johndoe",
         },
         {
+          _id: nanoid(),
           name: "Github",
           link: "johndoe",
         },
         {
+          _id: nanoid(),
           name: "LinkedIn",
           link: "johndoe",
         },
         {
+          _id: nanoid(),
           name: "Website",
           link: "https://johndoe.dev",
         },
         {
+          _id: nanoid(),
           name: "URL",
           link: "https://example.com",
         },
@@ -59,19 +65,41 @@ export const FormButtons = ({ handlePrint }) => {
     dispatch(
       setLanguages([
         {
+          _id: nanoid(),
           name: "Spanish",
           level: "C2",
         },
         {
+          _id: nanoid(),
           name: "Italian",
           level: "B1",
         },
       ])
     );
-    dispatch(setHobbies(["Swimming", "Fitness", "Chess", "Camping"]));
+    dispatch(
+      setHobbies([
+        {
+          _id: nanoid(),
+          name: "Swimming",
+        },
+        {
+          _id: nanoid(),
+          name: "Fitness",
+        },
+        {
+          _id: nanoid(),
+          name: "Chess",
+        },
+        {
+          _id: nanoid(),
+          name: "Camping",
+        },
+      ])
+    );
     dispatch(
       setEducation([
         {
+          _id: nanoid(),
           school: "Massachusetts Institute of Technology",
           subject: "Computer Science",
           city: "Cambridge/USA",
@@ -80,6 +108,7 @@ export const FormButtons = ({ handlePrint }) => {
           to: "Jun, 2020",
         },
         {
+          _id: nanoid(),
           school: "Massachusetts Institute of Technology",
           subject: "Computer Science",
           city: "Cambridge/USA",
@@ -92,6 +121,7 @@ export const FormButtons = ({ handlePrint }) => {
     dispatch(
       setExperience([
         {
+          _id: nanoid(),
           company: "Facebook Inc.",
           position: "Front-End Developer",
           city: "California/USA",
@@ -101,6 +131,7 @@ export const FormButtons = ({ handlePrint }) => {
           to: "Sep, 2021",
         },
         {
+          _id: nanoid(),
           company: "Facebook Inc.",
           position: "Front-End Developer",
           city: "California/USA",
@@ -114,14 +145,17 @@ export const FormButtons = ({ handlePrint }) => {
     dispatch(
       setSkills([
         {
+          _id: nanoid(),
           name: "HTML",
           level: 9,
         },
         {
+          _id: nanoid(),
           name: "CSS",
           level: 10,
         },
         {
+          _id: nanoid(),
           name: "JavaScript",
           level: 8,
         },
@@ -130,12 +164,14 @@ export const FormButtons = ({ handlePrint }) => {
     dispatch(
       setProjects([
         {
+          _id: nanoid(),
           name: "Sample Project",
           link: "https://github.com/johndoe/sample-project",
           description:
             "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur eligendi cumque sunt incidunt atque labore assumenda ratione tempore officia!",
         },
         {
+          _id: nanoid(),
           name: "Sample Project",
           link: "https://github.com/johndoe/sample-project",
           description:
@@ -146,6 +182,7 @@ export const FormButtons = ({ handlePrint }) => {
     dispatch(
       setCourses([
         {
+          _id: nanoid(),
           name: "Advanced JavaScript Course",
           company: "Udemy",
           description:
@@ -154,6 +191,7 @@ export const FormButtons = ({ handlePrint }) => {
           to: "Dec, 2018",
         },
         {
+          _id: nanoid(),
           name: "Spanish Course",
           company: "Udemy",
           description:
@@ -166,12 +204,14 @@ export const FormButtons = ({ handlePrint }) => {
     dispatch(
       setReferences([
         {
+          _id: nanoid(),
           name: "John Doe",
           title: "Sr. Full-Stack Developer",
           gsm: "001 408 408 4848",
           company: "JD Development",
         },
         {
+          _id: nanoid(),
           name: "John Doe",
           title: "Sr. Full-Stack Developer",
           gsm: "001 408 408 4848",
