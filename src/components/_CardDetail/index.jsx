@@ -18,13 +18,15 @@ export const CardDetail = ({ data, setter, print }) => {
           data.map((item) => {
             let result = "";
 
-            print.map((it) => {
-              result += item[it] + " ";
-            });
-
             return (
               <div className={styles.item}>
-                <span>{result}</span>
+                <div className={styles.title}>
+                  {React.Children.toArray(
+                    print.map((it) => {
+                      return <span>{item[it]}</span>;
+                    })
+                  )}
+                </div>
                 <FaTimes
                   className={styles.icon}
                   onClick={() => {

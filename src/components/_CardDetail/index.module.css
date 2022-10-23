@@ -10,6 +10,10 @@
   @apply bg-dark flex justify-between items-center p-2 border-b-2 border-b-primary text-light;
 }
 
+.title {
+  @apply w-full flex items-center gap-x-3 pr-5;
+}
+
 .icon {
   @apply cursor-pointer;
 }
