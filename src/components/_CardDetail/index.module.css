@@ -9,3 +9,7 @@
 .item {
   @apply bg-dark flex justify-between items-center p-2 border-b-2 border-b-primary text-light;
 }
+
+.icon {
+  @apply cursor-pointer;
+}

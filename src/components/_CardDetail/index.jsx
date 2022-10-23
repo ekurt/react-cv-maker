@@ -10,29 +10,32 @@ export const CardDetail = ({ data, setter, print }) => {
     dispatch(setter(data.filter((item) => item._id !== id)));
   };
 
-  return (
-    <div className={styles.cardDetail}>
-      <hr className={styles.hr} />
-      {React.Children.toArray(
-        data.map((item) => {
-          let result = "";
+  if (data.length !== 0) {
+    return (
+      <div className={styles.cardDetail}>
+        <hr className={styles.hr} />
+        {React.Children.toArray(
+          data.map((item) => {
+            let result = "";
 
-          print.map((it) => {
-            result += item[it] + " ";
-          });
+            print.map((it) => {
+              result += item[it] + " ";
+            });
 
-          return (
-            <div className={styles.item}>
-              <span>{result}</span>
-              <FaTimes
-                onClick={() => {
-                  handleRemoveItem(item._id);
-                }}
-              />
-            </div>
-          );
-        })
-      )}
-    </div>
-  );
+            return (
+              <div className={styles.item}>
+                <span>{result}</span>
+                <FaTimes
+                  className={styles.icon}
+                  onClick={() => {
+                    handleRemoveItem(item._id);
+                  }}
+                />
+              </div>
+            );
+          })
+        )}
+      </div>
+    );
+  }
 };
