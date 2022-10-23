@@ -1,4 +1,3 @@
-import { Result } from "postcss";
 import React from "react";
 import { FaTimes } from "react-icons/fa";
 import { useDispatch } from "react-redux";
