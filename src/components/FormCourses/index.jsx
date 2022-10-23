@@ -6,7 +6,7 @@ import { CoursesSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setCourses } from "../../stores/form";
 import { nanoid } from "nanoid";
-import { Card } from "../";
+import { Card, CardDetail } from "../";
 
 export const FormCourses = ({ handleResetData }) => {
   const dispatch = useDispatch();
@@ -17,7 +17,6 @@ export const FormCourses = ({ handleResetData }) => {
       <Formik
         validationSchema={CoursesSchema}
         initialValues={{
-          _id: nanoid(),
           name: "",
           company: "",
           description: "",
@@ -25,7 +24,15 @@ export const FormCourses = ({ handleResetData }) => {
           to: "",
         }}
         onSubmit={(values, actions) => {
-          dispatch(setCourses([{ ...values }, ...courses]));
+          dispatch(
+            setCourses([
+              {
+                _id: nanoid(),
+                ...values,
+              },
+              ...courses,
+            ])
+          );
           actions.resetForm();
         }}
       >
@@ -86,6 +93,7 @@ export const FormCourses = ({ handleResetData }) => {
           </Form>
         )}
       </Formik>
+      <CardDetail data={courses} setter={setCourses} print={["name", "company"]} />
     </Card>
   );
 };

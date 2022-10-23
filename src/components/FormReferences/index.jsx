@@ -6,7 +6,7 @@ import { ReferencesSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setReferences } from "../../stores/form";
 import { nanoid } from "nanoid";
-import { Card } from "../";
+import { Card, CardDetail } from "../";
 
 export const FormReferences = ({ handleResetData }) => {
   const dispatch = useDispatch();
@@ -17,14 +17,21 @@ export const FormReferences = ({ handleResetData }) => {
       <Formik
         validationSchema={ReferencesSchema}
         initialValues={{
-          _id: nanoid(),
           name: "",
           title: "",
           gsm: "",
           company: "",
         }}
         onSubmit={(values, actions) => {
-          dispatch(setReferences([...references, { ...values }]));
+          dispatch(
+            setReferences([
+              ...references,
+              {
+                _id: nanoid(),
+                ...values,
+              },
+            ])
+          );
           actions.resetForm();
         }}
       >
@@ -78,6 +85,7 @@ export const FormReferences = ({ handleResetData }) => {
           </Form>
         )}
       </Formik>
+      <CardDetail data={references} setter={setReferences} print={["name", "title"]} />
     </Card>
   );
 };

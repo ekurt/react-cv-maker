@@ -6,7 +6,7 @@ import { SocialSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setSocial } from "../../stores/form";
 import { nanoid } from "nanoid";
-import { Card } from "../";
+import { Card, CardDetail } from "../";
 
 export const FormSocial = ({ handleResetData }) => {
   const dispatch = useDispatch();
@@ -17,12 +17,19 @@ export const FormSocial = ({ handleResetData }) => {
       <Formik
         validationSchema={SocialSchema}
         initialValues={{
-          _id: nanoid(),
           name: "",
           link: "",
         }}
         onSubmit={(values, actions) => {
-          dispatch(setSocial([...social, { ...values }]));
+          dispatch(
+            setSocial([
+              ...social,
+              {
+                _id: nanoid(),
+                ...values,
+              },
+            ])
+          );
           actions.resetForm();
         }}
       >
@@ -69,6 +76,7 @@ export const FormSocial = ({ handleResetData }) => {
           </Form>
         )}
       </Formik>
+      <CardDetail data={social} setter={setSocial} print={["name", "link"]} />
     </Card>
   );
 };

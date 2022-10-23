@@ -11,7 +11,7 @@ export const PreviewHobbies = () => {
     items = React.Children.toArray(
       hobbies.map((item) => (
         <div className={styles.item}>
-          <strong>{item}</strong>
+          <strong>{item.name}</strong>
         </div>
       ))
     );

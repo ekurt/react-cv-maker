@@ -6,7 +6,7 @@ import { HobbiesSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setHobbies } from "../../stores/form";
 import { nanoid } from "nanoid";
-import { Card } from "../";
+import { Card, CardDetail } from "../";
 
 export const FormHobbies = ({ handleResetData }) => {
   const dispatch = useDispatch();
@@ -17,11 +17,18 @@ export const FormHobbies = ({ handleResetData }) => {
       <Formik
         validationSchema={HobbiesSchema}
         initialValues={{
-          _id: nanoid(),
           name: "",
         }}
         onSubmit={(values, actions) => {
-          dispatch(setHobbies([...hobbies, values.name]));
+          dispatch(
+            setHobbies([
+              ...hobbies,
+              {
+                _id: nanoid(),
+                name: values.name,
+              },
+            ])
+          );
           actions.resetForm();
         }}
       >
@@ -58,6 +65,7 @@ export const FormHobbies = ({ handleResetData }) => {
           </Form>
         )}
       </Formik>
+      <CardDetail data={hobbies} setter={setHobbies} print={["name"]} />
     </Card>
   );
 };

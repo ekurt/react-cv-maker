@@ -6,7 +6,7 @@ import { LanguageSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setLanguages } from "../../stores/form";
 import { nanoid } from "nanoid";
-import { Card } from "../";
+import { Card, CardDetail } from "../";
 
 export const FormLanguage = ({ handleResetData }) => {
   const dispatch = useDispatch();
@@ -17,12 +17,19 @@ export const FormLanguage = ({ handleResetData }) => {
       <Formik
         validationSchema={LanguageSchema}
         initialValues={{
-          _id: nanoid(),
           name: "",
           level: "",
         }}
         onSubmit={(values, actions) => {
-          dispatch(setLanguages([...languages, { ...values }]));
+          dispatch(
+            setLanguages([
+              ...languages,
+              {
+                _id: nanoid(),
+                ...values,
+              },
+            ])
+          );
           actions.resetForm();
         }}
       >
@@ -70,6 +77,11 @@ export const FormLanguage = ({ handleResetData }) => {
           </Form>
         )}
       </Formik>
+      <CardDetail
+        data={languages}
+        setter={setLanguages}
+        print={["name", "level"]}
+      />
     </Card>
   );
 };

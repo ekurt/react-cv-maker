@@ -6,7 +6,7 @@ import { ProjectsSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setProjects } from "../../stores/form";
 import { nanoid } from "nanoid";
-import { Card } from "../";
+import { Card, CardDetail } from "../";
 
 export const FormProjects = ({ handleResetData }) => {
   const dispatch = useDispatch();
@@ -17,13 +17,20 @@ export const FormProjects = ({ handleResetData }) => {
       <Formik
         validationSchema={ProjectsSchema}
         initialValues={{
-          _id: nanoid(),
           name: "",
           link: "",
           description: "",
         }}
         onSubmit={(values, actions) => {
-          dispatch(setProjects([...projects, { ...values }]));
+          dispatch(
+            setProjects([
+              ...projects,
+              {
+                _id: nanoid(),
+                ...values,
+              },
+            ])
+          );
           actions.resetForm();
         }}
       >
@@ -72,6 +79,11 @@ export const FormProjects = ({ handleResetData }) => {
           </Form>
         )}
       </Formik>
+      <CardDetail
+        data={projects}
+        setter={setProjects}
+        print={["name", "link"]}
+      />
     </Card>
   );
 };

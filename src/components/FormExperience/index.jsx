@@ -6,7 +6,7 @@ import { ExperienceSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setExperience } from "../../stores/form";
 import { nanoid } from "nanoid";
-import { Card } from "../";
+import { Card, CardDetail } from "../";
 
 export const FormExperience = ({ handleResetData }) => {
   const dispatch = useDispatch();
@@ -17,7 +17,6 @@ export const FormExperience = ({ handleResetData }) => {
       <Formik
         validationSchema={ExperienceSchema}
         initialValues={{
-          _id: nanoid(),
           company: "",
           position: "",
           city: "",
@@ -26,7 +25,15 @@ export const FormExperience = ({ handleResetData }) => {
           to: "",
         }}
         onSubmit={(values, actions) => {
-          dispatch(setExperience([{ ...values }, ...experience]));
+          dispatch(
+            setExperience([
+              {
+                _id: nanoid(),
+                ...values,
+              },
+              ...experience,
+            ])
+          );
           actions.resetForm();
         }}
       >
@@ -94,6 +101,7 @@ export const FormExperience = ({ handleResetData }) => {
           </Form>
         )}
       </Formik>
+      <CardDetail data={experience} setter={setExperience} print={["company", "position"]} />
     </Card>
   );
 };

@@ -6,7 +6,7 @@ import { SkillsSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setSkills } from "../../stores/form";
 import { nanoid } from "nanoid";
-import { Card } from "../";
+import { Card, CardDetail } from "../";
 
 export const FormSkills = ({ handleResetData }) => {
   const dispatch = useDispatch();
@@ -17,12 +17,19 @@ export const FormSkills = ({ handleResetData }) => {
       <Formik
         validationSchema={SkillsSchema}
         initialValues={{
-          _id: nanoid(),
           name: "",
           level: 0,
         }}
         onSubmit={(values, actions) => {
-          dispatch(setSkills([...skills, { ...values }]));
+          dispatch(
+            setSkills([
+              ...skills,
+              {
+                _id: nanoid(),
+                ...values,
+              },
+            ])
+          );
           actions.resetForm();
         }}
       >
@@ -74,6 +81,7 @@ export const FormSkills = ({ handleResetData }) => {
           </Form>
         )}
       </Formik>
+      <CardDetail data={skills} setter={setSkills} print={["name", "level"]} />
     </Card>
   );
 };
