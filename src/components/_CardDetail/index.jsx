@@ -1,16 +1,39 @@
+import { Result } from "postcss";
 import React from "react";
+import { FaTimes } from "react-icons/fa";
+import { useDispatch } from "react-redux";
 import styles from "./index.module.css";
 
-export const CardDetail = ({data}) => {
+export const CardDetail = ({ data, setter, print }) => {
+  const dispatch = useDispatch();
+
+  const handleRemoveItem = (id) => {
+    dispatch(setter(data.filter((item) => item._id !== id)));
+  };
+
   return (
     <div className={styles.cardDetail}>
       <hr className={styles.hr} />
-      {data.map((item) => (
-        <div className={styles.item}>
-          {item.name}
-          <span>x</span>
-        </div>
-      ))}
+      {React.Children.toArray(
+        data.map((item) => {
+          let result = "";
+
+          print.map((it) => {
+            result += item[it] + " ";
+          });
+
+          return (
+            <div className={styles.item}>
+              <span>{result}</span>
+              <FaTimes
+                onClick={() => {
+                  handleRemoveItem(item._id);
+                }}
+              />
+            </div>
+          );
+        })
+      )}
     </div>
   );
 };
