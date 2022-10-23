@@ -6,7 +6,7 @@ import { ReferencesSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setReferences } from "../../stores/form";
 import { nanoid } from "nanoid";
-import { Card } from "../_Card";
+import { Card } from "../";
 
 export const FormReferences = ({ handleResetData }) => {
   const dispatch = useDispatch();

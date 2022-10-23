@@ -6,7 +6,7 @@ import { SocialSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setSocial } from "../../stores/form";
 import { nanoid } from "nanoid";
-import { Card } from "../_Card";
+import { Card } from "../";
 
 export const FormSocial = ({ handleResetData }) => {
   const dispatch = useDispatch();

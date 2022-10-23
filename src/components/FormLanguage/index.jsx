@@ -6,7 +6,7 @@ import { LanguageSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setLanguages } from "../../stores/form";
 import { nanoid } from "nanoid";
-import { Card } from "../_Card";
+import { Card } from "../";
 
 export const FormLanguage = ({ handleResetData }) => {
   const dispatch = useDispatch();

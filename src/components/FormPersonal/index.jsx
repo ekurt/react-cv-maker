@@ -5,7 +5,7 @@ import styles from "./index.module.css";
 import { PersonalSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setPersonal } from "../../stores/form";
-import { Card } from "../_Card";
+import { Card } from "../";
 
 export const FormPersonal = () => {
   const dispatch = useDispatch();

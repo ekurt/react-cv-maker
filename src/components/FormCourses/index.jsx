@@ -6,7 +6,7 @@ import { CoursesSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setCourses } from "../../stores/form";
 import { nanoid } from "nanoid";
-import { Card } from "../_Card";
+import { Card } from "../";
 
 export const FormCourses = ({ handleResetData }) => {
   const dispatch = useDispatch();
