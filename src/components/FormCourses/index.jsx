@@ -6,14 +6,14 @@ import { CoursesSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setCourses } from "../../stores/form";
 import { nanoid } from "nanoid";
+import { Card } from "../_Card";
 
 export const FormCourses = ({ handleResetData }) => {
   const dispatch = useDispatch();
   const { courses } = useSelector((state) => state.form);
 
   return (
-    <div className={styles.courses}>
-      <h4>Courses</h4>
+    <Card title="Courses">
       <Formik
         validationSchema={CoursesSchema}
         initialValues={{
@@ -86,6 +86,6 @@ export const FormCourses = ({ handleResetData }) => {
           </Form>
         )}
       </Formik>
-    </div>
+    </Card>
   );
 };

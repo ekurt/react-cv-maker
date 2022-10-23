@@ -6,14 +6,14 @@ import { HobbiesSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setHobbies } from "../../stores/form";
 import { nanoid } from "nanoid";
+import { Card } from "../_Card";
 
 export const FormHobbies = ({ handleResetData }) => {
   const dispatch = useDispatch();
   const { hobbies } = useSelector((state) => state.form);
 
   return (
-    <div className={styles.hobby}>
-      <h4>Hobbies</h4>
+    <Card title="Hobbies">
       <Formik
         validationSchema={HobbiesSchema}
         initialValues={{
@@ -58,6 +58,6 @@ export const FormHobbies = ({ handleResetData }) => {
           </Form>
         )}
       </Formik>
-    </div>
+    </Card>
   );
 };

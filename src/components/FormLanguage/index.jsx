@@ -6,14 +6,14 @@ import { LanguageSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setLanguages } from "../../stores/form";
 import { nanoid } from "nanoid";
+import { Card } from "../_Card";
 
 export const FormLanguage = ({ handleResetData }) => {
   const dispatch = useDispatch();
   const { languages } = useSelector((state) => state.form);
 
   return (
-    <div className={styles.language}>
-      <h4>Languages</h4>
+    <Card title="Languages">
       <Formik
         validationSchema={LanguageSchema}
         initialValues={{
@@ -70,6 +70,6 @@ export const FormLanguage = ({ handleResetData }) => {
           </Form>
         )}
       </Formik>
-    </div>
+    </Card>
   );
 };

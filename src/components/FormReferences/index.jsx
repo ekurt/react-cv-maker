@@ -6,14 +6,14 @@ import { ReferencesSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setReferences } from "../../stores/form";
 import { nanoid } from "nanoid";
+import { Card } from "../_Card";
 
 export const FormReferences = ({ handleResetData }) => {
   const dispatch = useDispatch();
   const { references } = useSelector((state) => state.form);
 
   return (
-    <div className={styles.references}>
-      <h4>References</h4>
+    <Card title="References">
       <Formik
         validationSchema={ReferencesSchema}
         initialValues={{
@@ -78,6 +78,6 @@ export const FormReferences = ({ handleResetData }) => {
           </Form>
         )}
       </Formik>
-    </div>
+    </Card>
   );
 };

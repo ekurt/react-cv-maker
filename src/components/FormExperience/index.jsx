@@ -6,14 +6,14 @@ import { ExperienceSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setExperience } from "../../stores/form";
 import { nanoid } from "nanoid";
+import { Card } from "../_Card";
 
 export const FormExperience = ({ handleResetData }) => {
   const dispatch = useDispatch();
   const { experience } = useSelector((state) => state.form);
 
   return (
-    <div className={styles.experience}>
-      <h4>Experience</h4>
+    <Card title="Experience">
       <Formik
         validationSchema={ExperienceSchema}
         initialValues={{
@@ -94,6 +94,6 @@ export const FormExperience = ({ handleResetData }) => {
           </Form>
         )}
       </Formik>
-    </div>
+    </Card>
   );
 };

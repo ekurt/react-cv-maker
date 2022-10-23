@@ -6,14 +6,14 @@ import { SocialSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setSocial } from "../../stores/form";
 import { nanoid } from "nanoid";
+import { Card } from "../_Card";
 
 export const FormSocial = ({ handleResetData }) => {
   const dispatch = useDispatch();
   const { social } = useSelector((state) => state.form);
 
   return (
-    <div className={styles.social}>
-      <h4>Social</h4>
+    <Card title="Social">
       <Formik
         validationSchema={SocialSchema}
         initialValues={{
@@ -69,6 +69,6 @@ export const FormSocial = ({ handleResetData }) => {
           </Form>
         )}
       </Formik>
-    </div>
+    </Card>
   );
 };

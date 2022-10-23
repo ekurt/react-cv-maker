@@ -5,6 +5,7 @@ import styles from "./index.module.css";
 import { PersonalSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setPersonal } from "../../stores/form";
+import { Card } from "../_Card";
 
 export const FormPersonal = () => {
   const dispatch = useDispatch();
@@ -15,8 +16,7 @@ export const FormPersonal = () => {
   };
 
   return (
-    <div className={styles.personal}>
-      <h4>Personal Information</h4>
+    <Card title="Personal Information">
       <Formik
         validationSchema={PersonalSchema}
         initialValues={{
@@ -102,6 +102,6 @@ export const FormPersonal = () => {
           </Form>
         )}
       </Formik>
-    </div>
+    </Card>
   );
 };

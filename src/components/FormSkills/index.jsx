@@ -6,14 +6,14 @@ import { SkillsSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setSkills } from "../../stores/form";
 import { nanoid } from "nanoid";
+import { Card } from "../_Card";
 
 export const FormSkills = ({ handleResetData }) => {
   const dispatch = useDispatch();
   const { skills } = useSelector((state) => state.form);
 
   return (
-    <div className={styles.skills}>
-      <h4>Skills</h4>
+    <Card title="Skills">
       <Formik
         validationSchema={SkillsSchema}
         initialValues={{
@@ -74,6 +74,6 @@ export const FormSkills = ({ handleResetData }) => {
           </Form>
         )}
       </Formik>
-    </div>
+    </Card>
   );
 };

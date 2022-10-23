@@ -6,14 +6,14 @@ import { ProjectsSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setProjects } from "../../stores/form";
 import { nanoid } from "nanoid";
+import { Card } from "../_Card";
 
 export const FormProjects = ({ handleResetData }) => {
   const dispatch = useDispatch();
   const { projects } = useSelector((state) => state.form);
 
   return (
-    <div className={styles.projects}>
-      <h4>Projects</h4>
+    <Card title="Projects">
       <Formik
         validationSchema={ProjectsSchema}
         initialValues={{
@@ -72,6 +72,6 @@ export const FormProjects = ({ handleResetData }) => {
           </Form>
         )}
       </Formik>
-    </div>
+    </Card>
   );
 };
