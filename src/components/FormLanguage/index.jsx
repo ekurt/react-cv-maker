@@ -5,6 +5,7 @@ import styles from "./index.module.css";
 import { LanguageSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setLanguages } from "../../stores/form";
+import { nanoid } from "nanoid";
 
 export const FormLanguage = ({ handleResetData }) => {
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ export const FormLanguage = ({ handleResetData }) => {
       <Formik
         validationSchema={LanguageSchema}
         initialValues={{
+          _id: nanoid(),
           name: "",
           level: "",
         }}

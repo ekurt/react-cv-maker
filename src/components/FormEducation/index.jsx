@@ -5,6 +5,7 @@ import styles from "./index.module.css";
 import { EducationSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setEducation } from "../../stores/form";
+import { nanoid } from "nanoid";
 
 export const FormEducation = ({ handleResetData }) => {
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ export const FormEducation = ({ handleResetData }) => {
       <Formik
         validationSchema={EducationSchema}
         initialValues={{
+          _id: nanoid(),
           school: "",
           subject: "",
           city: "",

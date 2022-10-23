@@ -5,6 +5,7 @@ import styles from "./index.module.css";
 import { ExperienceSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setExperience } from "../../stores/form";
+import { nanoid } from "nanoid";
 
 export const FormExperience = ({ handleResetData }) => {
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ export const FormExperience = ({ handleResetData }) => {
       <Formik
         validationSchema={ExperienceSchema}
         initialValues={{
+          _id: nanoid(),
           company: "",
           position: "",
           city: "",

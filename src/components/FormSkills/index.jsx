@@ -5,6 +5,7 @@ import styles from "./index.module.css";
 import { SkillsSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setSkills } from "../../stores/form";
+import { nanoid } from "nanoid";
 
 export const FormSkills = ({ handleResetData }) => {
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ export const FormSkills = ({ handleResetData }) => {
       <Formik
         validationSchema={SkillsSchema}
         initialValues={{
+          _id: nanoid(),
           name: "",
           level: 0,
         }}

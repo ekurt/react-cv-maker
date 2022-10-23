@@ -5,6 +5,7 @@ import styles from "./index.module.css";
 import { ReferencesSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setReferences } from "../../stores/form";
+import { nanoid } from "nanoid";
 
 export const FormReferences = ({ handleResetData }) => {
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ export const FormReferences = ({ handleResetData }) => {
       <Formik
         validationSchema={ReferencesSchema}
         initialValues={{
+          _id: nanoid(),
           name: "",
           title: "",
           gsm: "",

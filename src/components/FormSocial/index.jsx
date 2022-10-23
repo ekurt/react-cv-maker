@@ -5,6 +5,7 @@ import styles from "./index.module.css";
 import { SocialSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setSocial } from "../../stores/form";
+import { nanoid } from "nanoid";
 
 export const FormSocial = ({ handleResetData }) => {
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ export const FormSocial = ({ handleResetData }) => {
       <Formik
         validationSchema={SocialSchema}
         initialValues={{
+          _id: nanoid(),
           name: "",
           link: "",
         }}

@@ -5,6 +5,7 @@ import styles from "./index.module.css";
 import { ProjectsSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setProjects } from "../../stores/form";
+import { nanoid } from "nanoid";
 
 export const FormProjects = ({ handleResetData }) => {
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ export const FormProjects = ({ handleResetData }) => {
       <Formik
         validationSchema={ProjectsSchema}
         initialValues={{
+          _id: nanoid(),
           name: "",
           link: "",
           description: "",
