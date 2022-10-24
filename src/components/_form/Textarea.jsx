@@ -11,7 +11,7 @@ export default function Textarea({ label, ...props }) {
           "border-white border-opacity-30": !meta.error,
           "border-red-600 border-opacity-100": meta.error,
         })}
-        autoComplete="none"
+        autoComplete="off"
         {...fields}
         {...props}
       />
