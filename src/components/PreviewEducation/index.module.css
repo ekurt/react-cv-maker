@@ -11,5 +11,5 @@
 }
 
 .itemHeader {
-  @apply flex justify-between;
+  @apply flex flex-wrap justify-between;
 }
