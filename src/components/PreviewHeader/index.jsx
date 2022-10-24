@@ -13,7 +13,7 @@ export const PreviewHeader = () => {
         <h1 className={styles.title}>{nameSurname}</h1>
         <h2 className={styles.subtitle}>{title}</h2>
       </div>
-      <div className={styles.description}>{description}</div>
+      {description && <div className={styles.description}>{description}</div>}
     </>
   );
 };

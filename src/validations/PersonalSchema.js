@@ -6,7 +6,7 @@ const SUPPORTED_FORMATS = ["image/jpg", "image/jpeg", "image/png"];
 export const PersonalSchema = Yup.object().shape({
   nameSurname: Yup.string().required(),
   title: Yup.string().required(),
-  description: Yup.string().required(),
+  description: Yup.string(),
   address: Yup.string(),
   gsm: Yup.number(),
   letter: Yup.string().email().required(),
