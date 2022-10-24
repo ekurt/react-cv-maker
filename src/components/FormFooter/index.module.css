@@ -1,0 +1,7 @@
+.footer {
+  @apply w-full bg-dark flex flex-wrap justify-center items-center gap-x-1 text-light text-center p-4 shadow-lg shadow-black leading-loose;
+}
+
+.mark {
+  @apply bg-white text-dark font-bold px-2 py-1 mx-1;
+}

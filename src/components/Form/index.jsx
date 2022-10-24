@@ -13,6 +13,7 @@ import {
   FormCourses,
   FormReferences,
   FormSocial,
+  FormFooter,
 } from "../index";
 import styles from "./index.module.css";
 
@@ -37,6 +38,7 @@ export const Form = ({ handlePrint }) => {
       <FormProjects handleResetData={handleResetData} />
       <FormCourses handleResetData={handleResetData} />
       <FormReferences handleResetData={handleResetData} />
+      <FormFooter />
     </div>
   );
 };
