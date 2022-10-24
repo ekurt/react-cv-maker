@@ -13,24 +13,101 @@ import {
   PreviewReferences,
 } from "../index";
 import styles from "./index.module.css";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import { useDispatch, useSelector } from "react-redux";
+import { setLeftSide, setRightSide } from "../../stores/site";
 
-export const Preview = forwardRef((props, ref) => {
+export const Preview = forwardRef(({ array }, ref) => {
+  const dispatch = useDispatch();
+  const { leftSide, rightSide } = useSelector((state) => state.site);
+
+  const handleOnDrugEndLeft = (result) => {
+    if (!result.destination) return;
+    const items = Array.from(leftSide);
+    const [reorderedItem] = items.splice(result.source.index, 1);
+    items.splice(result.destination.index, 0, reorderedItem);
+    dispatch(setLeftSide(items));
+  };
+
+  const handleOnDrugEndRight = (result) => {
+    if (!result.destination) return;
+    const items = Array.from(rightSide);
+    const [reorderedItem] = items.splice(result.source.index, 1);
+    items.splice(result.destination.index, 0, reorderedItem);
+    dispatch(setRightSide(items));
+  };
+
+  const previews = {
+    PreviewSocial: <PreviewSocial />,
+    PreviewLanguage: <PreviewLanguage />,
+    PreviewHobbies: <PreviewHobbies />,
+    PreviewEducation: <PreviewEducation />,
+    PreviewExperience: <PreviewExperience />,
+    PreviewSkills: <PreviewSkills />,
+    PreviewProjects: <PreviewProjects />,
+    PreviewCourses: <PreviewCourses />,
+    PreviewReferences: <PreviewReferences />,
+  };
+
   return (
     <div className={styles.preview} ref={ref}>
       <div className={styles.leftSide}>
         <PreviewPersonal />
-        <PreviewSocial />
-        <PreviewLanguage />
-        <PreviewHobbies />
+        <DragDropContext onDragEnd={handleOnDrugEndLeft}>
+          <Droppable droppableId="leftSide">
+            {(provided) => (
+              <div {...provided.droppableProps} ref={provided.innerRef}>
+                {leftSide.map((item, index) => (
+                  <Draggable
+                    key={`${item.id}`}
+                    draggableId={`${item.id}`}
+                    index={index}
+                  >
+                    {(provided) => (
+                      <div
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                        ref={provided.innerRef}
+                      >
+                        {previews[item.component]}
+                      </div>
+                    )}
+                  </Draggable>
+                ))}
+                {provided.placeholder}
+              </div>
+            )}
+          </Droppable>
+        </DragDropContext>
       </div>
       <div className={styles.rightSide}>
         <PreviewHeader />
-        <PreviewEducation />
-        <PreviewExperience />
-        <PreviewSkills />
-        <PreviewProjects />
-        <PreviewCourses />
-        <PreviewReferences />
+        <DragDropContext onDragEnd={handleOnDrugEndRight}>
+          <Droppable droppableId="rightSide">
+            {(provided) => (
+              <div {...provided.droppableProps} ref={provided.innerRef}>
+                {rightSide.map((item, index) => (
+                  <Draggable
+                    key={`${item.id}`}
+                    draggableId={`${item.id}`}
+                    index={index}
+                  >
+                    {(provided) => (
+                      <div
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                        ref={provided.innerRef}
+                      >
+                        {previews[item.component]}
+                      </div>
+                    )}
+                  </Draggable>
+                ))}
+                {provided.placeholder}
+              </div>
+            )}
+          </Droppable>
+        </DragDropContext>
       </div>
     </div>
   );
