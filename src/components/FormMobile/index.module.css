@@ -1,5 +1,5 @@
 .mobile {
-  @apply w-full bg-dark flex lg:hidden justify-center items-center text-light text-center p-4 mb-5 shadow-lg shadow-black;
+  @apply w-full bg-dark flex lg:hidden justify-center items-center text-light text-center p-4 mb-5 shadow-lg shadow-black leading-loose;
 }
 
 .mark {
