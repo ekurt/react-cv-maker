@@ -11,7 +11,7 @@
 }
 
 .title {
-  @apply w-full flex items-center gap-x-3 pr-5;
+  @apply w-full flex flex-wrap items-center gap-x-3 pr-5;
 }
 
 .icon {
