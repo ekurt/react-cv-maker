@@ -62,7 +62,7 @@ export const FormLanguage = ({ handleResetData }) => {
               onClick={handleReset}
               disabled={!dirty}
             >
-              CLEAR FORM
+              CLEAR
             </Button>
             <Button
               type="button"

@@ -86,7 +86,7 @@ export const FormExperience = ({ handleResetData }) => {
               onClick={handleReset}
               disabled={!dirty}
             >
-              CLEAR FORM
+              CLEAR
             </Button>
             <Button
               type="button"
@@ -101,7 +101,11 @@ export const FormExperience = ({ handleResetData }) => {
           </Form>
         )}
       </Formik>
-      <CardDetail data={experience} setter={setExperience} print={["company", "position"]} />
+      <CardDetail
+        data={experience}
+        setter={setExperience}
+        print={["company", "position"]}
+      />
     </Card>
   );
 };

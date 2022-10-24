@@ -70,7 +70,7 @@ export const FormReferences = ({ handleResetData }) => {
               onClick={handleReset}
               disabled={!dirty}
             >
-              CLEAR FORM
+              CLEAR
             </Button>
             <Button
               type="button"
@@ -85,7 +85,11 @@ export const FormReferences = ({ handleResetData }) => {
           </Form>
         )}
       </Formik>
-      <CardDetail data={references} setter={setReferences} print={["name", "title"]} />
+      <CardDetail
+        data={references}
+        setter={setReferences}
+        print={["name", "title"]}
+      />
     </Card>
   );
 };

@@ -78,7 +78,7 @@ export const FormCourses = ({ handleResetData }) => {
               onClick={handleReset}
               disabled={!dirty}
             >
-              CLEAR FORM
+              CLEAR
             </Button>
             <Button
               type="button"
@@ -93,7 +93,11 @@ export const FormCourses = ({ handleResetData }) => {
           </Form>
         )}
       </Formik>
-      <CardDetail data={courses} setter={setCourses} print={["name", "company"]} />
+      <CardDetail
+        data={courses}
+        setter={setCourses}
+        print={["name", "company"]}
+      />
     </Card>
   );
 };

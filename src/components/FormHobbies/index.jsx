@@ -50,7 +50,7 @@ export const FormHobbies = ({ handleResetData }) => {
               onClick={handleReset}
               disabled={!dirty}
             >
-              CLEAR FORM
+              CLEAR
             </Button>
             <Button
               type="button"
