@@ -23,7 +23,7 @@ export const PreviewPersonal = () => {
       {gsm && (
         <div className={styles.item}>
           <strong>Mobile Phone</strong>
-          <a href={`tel:${gsm}`}>{gsm}</a>
+          <a href={`tel:${gsm.replace(/\s/g, "")}`}>{gsm}</a>
         </div>
       )}
       {letter && (
