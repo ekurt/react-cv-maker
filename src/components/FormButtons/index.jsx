@@ -239,21 +239,21 @@ export const FormButtons = ({ handlePrint }) => {
   return (
     <div className={styles.container}>
       <Button onClick={uploadSample} variant="success">
-        FILL SAMPLE
+        SAMPLE
       </Button>
       <Button
         onClick={clearData}
         variant="danger"
         disabled={Object.keys(personal).length === 0}
       >
-        CLEAR DATA
+        CLEAR ALL
       </Button>
       <Button
         onClick={handlePrint}
         variant="info"
         disabled={Object.keys(personal).length === 0}
       >
-        SAVE AS PDF
+        PDF
       </Button>
     </div>
   );
