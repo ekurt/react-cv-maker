@@ -4,10 +4,13 @@
 
 🔗 Live Demo: [cv-maker.ekurt.dev](https://cv-maker.ekurt.dev)
 
+![cv-maker-app](https://cv-maker.ekurt.dev/assets/images/cv-maker-app.png)
+
 ## ✨ Features
 
 - Fill Sample
-- Save as PDF
+- Print & Save as PDF
+- Drag-Drop for sections
 - Personal information section
 - Social section
 - Languages section
@@ -37,7 +40,9 @@
 - react-redux
 - react-icons
 - react-to-print
+- react-beautiful-dnd
 - classnames
+- nanoid
 - formik
 - yup
 - @reduxjs/toolkit
