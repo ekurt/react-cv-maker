@@ -26,3 +26,4 @@ export { FormMobile } from "./FormMobile";
 export { Card } from "./_Card";
 export { CardDetail } from "./_CardDetail";
 export { FormFooter } from "./FormFooter";
+export { Buttons } from "./_Buttons";
