@@ -6,7 +6,7 @@ import { SocialSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setSocial } from "../../stores/form";
 import { nanoid } from "nanoid";
-import { Card, CardDetail } from "../";
+import { Card, CardDetail, Buttons } from "../";
 
 export const FormSocial = ({ handleResetData }) => {
   const dispatch = useDispatch();
@@ -52,27 +52,13 @@ export const FormSocial = ({ handleResetData }) => {
               name="link"
               placeholder="Username or URL Address"
             />
-            <Button type="submit" variant="info" disabled={!dirty}>
-              ADD
-            </Button>
-            <Button
-              type="reset"
-              variant="danger"
-              onClick={handleReset}
-              disabled={!dirty}
-            >
-              CLEAR
-            </Button>
-            <Button
-              type="button"
-              variant="danger"
-              onClick={() => {
-                handleResetData(setSocial);
-              }}
-              disabled={social.length === 0}
-            >
-              CLEAR DATA
-            </Button>
+            <Buttons
+              dirty={dirty}
+              handleReset={handleReset}
+              handleResetData={handleResetData}
+              setter={setSocial}
+              state={social}
+            />
           </Form>
         )}
       </Formik>

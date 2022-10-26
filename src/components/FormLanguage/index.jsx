@@ -6,7 +6,7 @@ import { LanguageSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setLanguages } from "../../stores/form";
 import { nanoid } from "nanoid";
-import { Card, CardDetail } from "../";
+import { Card, CardDetail, Buttons } from "../";
 
 export const FormLanguage = ({ handleResetData }) => {
   const dispatch = useDispatch();
@@ -53,27 +53,13 @@ export const FormLanguage = ({ handleResetData }) => {
                 { key: "C2", value: "C2" },
               ]}
             />
-            <Button type="submit" variant="info" disabled={!dirty}>
-              ADD
-            </Button>
-            <Button
-              type="reset"
-              variant="danger"
-              onClick={handleReset}
-              disabled={!dirty}
-            >
-              CLEAR
-            </Button>
-            <Button
-              type="button"
-              variant="danger"
-              onClick={() => {
-                handleResetData(setLanguages);
-              }}
-              disabled={languages.length === 0}
-            >
-              CLEAR DATA
-            </Button>
+            <Buttons
+              dirty={dirty}
+              handleReset={handleReset}
+              handleResetData={handleResetData}
+              setter={setLanguages}
+              state={languages}
+            />
           </Form>
         )}
       </Formik>

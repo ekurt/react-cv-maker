@@ -6,7 +6,7 @@ import { ExperienceSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setExperience } from "../../stores/form";
 import { nanoid } from "nanoid";
-import { Card, CardDetail } from "../";
+import { Card, CardDetail, Buttons } from "../";
 
 export const FormExperience = ({ handleResetData }) => {
   const dispatch = useDispatch();
@@ -77,27 +77,13 @@ export const FormExperience = ({ handleResetData }) => {
               name="description"
               placeholder="Description"
             />
-            <Button type="submit" variant="info" disabled={!dirty}>
-              ADD
-            </Button>
-            <Button
-              type="reset"
-              variant="danger"
-              onClick={handleReset}
-              disabled={!dirty}
-            >
-              CLEAR
-            </Button>
-            <Button
-              type="button"
-              variant="danger"
-              onClick={() => {
-                handleResetData(setExperience);
-              }}
-              disabled={experience.length === 0}
-            >
-              CLEAR DATA
-            </Button>
+            <Buttons
+              dirty={dirty}
+              handleReset={handleReset}
+              handleResetData={handleResetData}
+              setter={setExperience}
+              state={experience}
+            />
           </Form>
         )}
       </Formik>

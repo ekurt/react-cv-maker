@@ -5,7 +5,7 @@ import styles from "./index.module.css";
 import { PersonalSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setPersonal } from "../../stores/form";
-import { Card } from "../";
+import { Card, Buttons } from "../";
 
 export const FormPersonal = () => {
   const dispatch = useDispatch();
@@ -78,27 +78,14 @@ export const FormPersonal = () => {
               name="description"
               placeholder="Description"
             />
-            <Button type="submit" variant="info" disabled={!dirty}>
-              ADD
-            </Button>
-            <Button
-              type="reset"
-              variant="danger"
-              onClick={handleReset}
-              disabled={!dirty}
-            >
-              CLEAR
-            </Button>
-            <Button
-              type="button"
-              variant="danger"
-              onClick={() => {
-                handleResetData(setPersonal);
-              }}
-              disabled={Object.keys(personal).length === 0}
-            >
-              CLEAR DATA
-            </Button>
+            <Buttons
+              dirty={dirty}
+              handleReset={handleReset}
+              handleResetData={handleResetData}
+              setter={setPersonal}
+              state={personal}
+              isArray={false}
+            />
           </Form>
         )}
       </Formik>

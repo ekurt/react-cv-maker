@@ -6,7 +6,7 @@ import { ReferencesSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setReferences } from "../../stores/form";
 import { nanoid } from "nanoid";
-import { Card, CardDetail } from "../";
+import { Card, CardDetail, Buttons } from "../";
 
 export const FormReferences = ({ handleResetData }) => {
   const dispatch = useDispatch();
@@ -61,27 +61,13 @@ export const FormReferences = ({ handleResetData }) => {
               name="title"
               placeholder="Reference Title"
             />
-            <Button type="submit" variant="info" disabled={!dirty}>
-              ADD
-            </Button>
-            <Button
-              type="reset"
-              variant="danger"
-              onClick={handleReset}
-              disabled={!dirty}
-            >
-              CLEAR
-            </Button>
-            <Button
-              type="button"
-              variant="danger"
-              onClick={() => {
-                handleResetData(setReferences);
-              }}
-              disabled={references.length === 0}
-            >
-              CLEAR DATA
-            </Button>
+            <Buttons
+              dirty={dirty}
+              handleReset={handleReset}
+              handleResetData={handleResetData}
+              setter={setReferences}
+              state={references}
+            />
           </Form>
         )}
       </Formik>

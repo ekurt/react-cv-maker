@@ -6,7 +6,7 @@ import { CoursesSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setCourses } from "../../stores/form";
 import { nanoid } from "nanoid";
-import { Card, CardDetail } from "../";
+import { Card, CardDetail, Buttons } from "../";
 
 export const FormCourses = ({ handleResetData }) => {
   const dispatch = useDispatch();
@@ -69,27 +69,13 @@ export const FormCourses = ({ handleResetData }) => {
               name="description"
               placeholder="Description"
             />
-            <Button type="submit" variant="info" disabled={!dirty}>
-              ADD
-            </Button>
-            <Button
-              type="reset"
-              variant="danger"
-              onClick={handleReset}
-              disabled={!dirty}
-            >
-              CLEAR
-            </Button>
-            <Button
-              type="button"
-              variant="danger"
-              onClick={() => {
-                handleResetData(setCourses);
-              }}
-              disabled={courses.length === 0}
-            >
-              CLEAR DATA
-            </Button>
+            <Buttons
+              dirty={dirty}
+              handleReset={handleReset}
+              handleResetData={handleResetData}
+              setter={setCourses}
+              state={courses}
+            />
           </Form>
         )}
       </Formik>

@@ -6,7 +6,7 @@ import { ProjectsSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setProjects } from "../../stores/form";
 import { nanoid } from "nanoid";
-import { Card, CardDetail } from "../";
+import { Card, CardDetail, Buttons } from "../";
 
 export const FormProjects = ({ handleResetData }) => {
   const dispatch = useDispatch();
@@ -55,27 +55,13 @@ export const FormProjects = ({ handleResetData }) => {
               name="description"
               placeholder="Description"
             />
-            <Button type="submit" variant="info" disabled={!dirty}>
-              ADD
-            </Button>
-            <Button
-              type="reset"
-              variant="danger"
-              onClick={handleReset}
-              disabled={!dirty}
-            >
-              CLEAR
-            </Button>
-            <Button
-              type="button"
-              variant="danger"
-              onClick={() => {
-                handleResetData(setProjects);
-              }}
-              disabled={projects.length === 0}
-            >
-              CLEAR DATA
-            </Button>
+            <Buttons
+              dirty={dirty}
+              handleReset={handleReset}
+              handleResetData={handleResetData}
+              setter={setProjects}
+              state={projects}
+            />
           </Form>
         )}
       </Formik>
