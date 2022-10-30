@@ -19,7 +19,7 @@ import { setLeftSide, setRightSide } from "../../stores/site";
 
 export const Preview = forwardRef(({ array }, ref) => {
   const dispatch = useDispatch();
-  const { leftSide, rightSide } = useSelector((state) => state.site);
+  const { leftSide, rightSide, colors } = useSelector((state) => state.site);
 
   const handleOnDrugEndLeft = (result) => {
     if (!result.destination) return;
@@ -50,8 +50,12 @@ export const Preview = forwardRef(({ array }, ref) => {
   };
 
   return (
-    <div className={styles.preview} ref={ref}>
-      <div className={styles.leftSide}>
+    <div
+      className={styles.preview}
+      style={{ background: colors.body, color: colors.text }}
+      ref={ref}
+    >
+      <div className={styles.leftSide} style={{ background: colors.secondary }}>
         <PreviewPersonal />
         <DragDropContext onDragEnd={handleOnDrugEndLeft}>
           <Droppable droppableId="leftSide">

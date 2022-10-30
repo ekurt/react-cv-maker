@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 
 import styles from "./index.module.css";
 
 export const PreviewPersonal = () => {
-  const { nameSurname, title, photo, address, gsm, letter } = useSelector(
+  const { photo, address, gsm, letter } = useSelector(
     (state) => state.form.personal
   );
 

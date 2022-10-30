@@ -1,9 +1,9 @@
 .container {
-  @apply flex flex-col w-full text-primary px-6 mt-2;
+  @apply flex flex-col w-full px-6 mt-2;
 }
 
 .title {
-  @apply bg-dark p-2 mb-4 mt-4 text-light uppercase font-bold text-center tracking-widest;
+  @apply p-2 mb-4 mt-4 uppercase font-bold text-center tracking-widest;
 }
 
 .item {

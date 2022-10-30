@@ -4,6 +4,7 @@ import styles from "./index.module.css";
 
 export const PreviewSocial = () => {
   const { social } = useSelector((state) => state.form);
+  const { colors } = useSelector((state) => state.site);
 
   let items;
 
@@ -45,7 +46,12 @@ export const PreviewSocial = () => {
     <div className={styles.container}>
       {social.length !== 0 && (
         <>
-          <div className={styles.title}>Social</div>
+          <div
+            className={styles.title}
+            style={{ background: colors.primary, color: colors.titles }}
+          >
+            Social
+          </div>
           {items}
         </>
       )}

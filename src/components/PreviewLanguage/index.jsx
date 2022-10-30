@@ -4,6 +4,7 @@ import styles from "./index.module.css";
 
 export const PreviewLanguage = () => {
   const { languages } = useSelector((state) => state.form);
+  const { colors } = useSelector((state) => state.site);
 
   let items;
 
@@ -21,7 +22,12 @@ export const PreviewLanguage = () => {
     <div className={styles.container}>
       {languages.length !== 0 && (
         <>
-          <div className={styles.title}>Languages</div>
+          <div
+            className={styles.title}
+            style={{ background: colors.primary, color: colors.titles }}
+          >
+            Languages
+          </div>
           {items}
         </>
       )}

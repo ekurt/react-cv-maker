@@ -1,13 +1,13 @@
 .container {
-  @apply flex flex-col items-center justify-center bg-dark min-h-[200px];
+  @apply flex flex-col items-center justify-center min-h-[200px];
 }
 
 .title {
-  @apply text-light text-6xl text-center font-bold tracking-widest uppercase;
+  @apply text-6xl text-center font-bold tracking-widest uppercase;
 }
 
 .subtitle {
-  @apply mt-2 text-white text-2xl text-center tracking-wider;
+  @apply mt-2 text-2xl text-center tracking-wider;
 }
 
 .description {

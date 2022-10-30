@@ -4,6 +4,7 @@ import styles from "./index.module.css";
 
 export const PreviewReferences = () => {
   const { references } = useSelector((state) => state.form);
+  const { colors } = useSelector((state) => state.site);
 
   let items;
 
@@ -28,7 +29,12 @@ export const PreviewReferences = () => {
     <div className={styles.container}>
       {references.length !== 0 && (
         <>
-          <div className={styles.title}>references</div>
+          <div
+            className={styles.title}
+            style={{ background: colors.primary, color: colors.titles }}
+          >
+            references
+          </div>
           {items}
         </>
       )}

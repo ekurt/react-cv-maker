@@ -4,6 +4,7 @@ import styles from "./index.module.css";
 
 export const PreviewCourses = () => {
   const { courses } = useSelector((state) => state.form);
+  const { colors } = useSelector((state) => state.site);
 
   let items;
 
@@ -28,7 +29,12 @@ export const PreviewCourses = () => {
     <div className={styles.container}>
       {courses.length !== 0 && (
         <>
-          <div className={styles.title}>Courses</div>
+          <div
+            className={styles.title}
+            style={{ background: colors.primary, color: colors.titles }}
+          >
+            Courses
+          </div>
           {items}
         </>
       )}

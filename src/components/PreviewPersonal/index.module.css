@@ -1,5 +1,5 @@
 .container {
-  @apply flex flex-col w-full text-primary;
+  @apply flex flex-col w-full;
 }
 
 .photo {
@@ -8,10 +8,6 @@
 
 .rounded {
   @apply rounded-full;
-}
-
-.title {
-  @apply bg-dark p-2 mb-4 text-light uppercase font-bold text-center tracking-widest;
 }
 
 .item {
