@@ -19,7 +19,7 @@ import { setLeftSide, setRightSide } from "../../stores/site";
 
 export const Preview = forwardRef(({ array }, ref) => {
   const dispatch = useDispatch();
-  const { leftSide, rightSide, colors } = useSelector((state) => state.site);
+  const { leftSide, rightSide, colors, isContentEditable } = useSelector((state) => state.site);
 
   const handleOnDrugEndLeft = (result) => {
     if (!result.destination) return;
@@ -54,6 +54,8 @@ export const Preview = forwardRef(({ array }, ref) => {
       className={styles.preview}
       style={{ background: colors.body, color: colors.text }}
       ref={ref}
+      contentEditable={isContentEditable}
+      suppressContentEditableWarning={true}
     >
       <div className={styles.leftSide} style={{ background: colors.secondary }}>
         <PreviewPersonal />
@@ -66,6 +68,7 @@ export const Preview = forwardRef(({ array }, ref) => {
                     key={`${item.id}`}
                     draggableId={`${item.id}`}
                     index={index}
+                    isDragDisabled={isContentEditable}
                   >
                     {(provided) => (
                       <div
@@ -95,6 +98,7 @@ export const Preview = forwardRef(({ array }, ref) => {
                     key={`${item.id}`}
                     draggableId={`${item.id}`}
                     index={index}
+                    isDragDisabled={isContentEditable}
                   >
                     {(provided) => (
                       <div

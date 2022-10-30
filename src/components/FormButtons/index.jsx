@@ -13,12 +13,14 @@ import {
   setSkills,
   setSocial,
 } from "../../stores/form";
+import { setContentEditable } from "../../stores/site";
 import { Button } from "../_form";
 import styles from "./index.module.css";
 
 export const FormButtons = ({ handlePrint }) => {
   const dispatch = useDispatch();
   const { personal } = useSelector((state) => state.form);
+  const { isContentEditable } = useSelector((state) => state.site);
 
   const uploadSample = () => {
     dispatch(
@@ -254,6 +256,13 @@ export const FormButtons = ({ handlePrint }) => {
         disabled={Object.keys(personal).length === 0}
       >
         PDF
+      </Button>
+      <Button
+        onClick={() => dispatch(setContentEditable(!isContentEditable))}
+        variant={isContentEditable ? "success" : "danger"}
+        disabled={Object.keys(personal).length === 0}
+      >
+        LIVE EDIT
       </Button>
     </div>
   );
