@@ -12,6 +12,7 @@
 - Print & Save as PDF
 - Drag-Drop for sections
 - Color customize
+- Live editable content
 - Personal information section
 - Social section
 - Languages section
