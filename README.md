@@ -11,6 +11,7 @@
 - Fill Sample
 - Print & Save as PDF
 - Drag-Drop for sections
+- Color customize
 - Personal information section
 - Social section
 - Languages section
