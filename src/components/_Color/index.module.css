@@ -1,0 +1,22 @@
+.box {
+  @apply appearance-none w-16 h-8 border-2 mb-2 border-white;
+}
+
+.box::-webkit-color-swatch-wrapper {
+  @apply p-0;
+}
+.box::-webkit-color-swatch {
+  @apply border-0;
+}
+
+.item {
+  @apply flex flex-col;
+}
+
+.span {
+  @apply text-xs text-white;
+}
+
+.hint {
+  @apply w-full text-xs text-white;
+}

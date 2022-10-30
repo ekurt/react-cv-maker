@@ -27,3 +27,5 @@ export { Card } from "./_Card";
 export { CardDetail } from "./_CardDetail";
 export { FormFooter } from "./FormFooter";
 export { Buttons } from "./_Buttons";
+export { FormColors } from "./FormColors";
+export { Color } from "./_Color";
