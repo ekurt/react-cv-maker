@@ -16,6 +16,15 @@ export const siteSlice = createSlice({
       { id: 5, component: "PreviewCourses" },
       { id: 6, component: "PreviewReferences" },
     ],
+    colors: {
+      primary: "#373740",
+      secondary: "#E1D8CF",
+      body: "#FFFFFF",
+      title: "#E1D8CF",
+      subtitle: "#FFFFFF",
+      titles: "#E1D8CF",
+      text: "#43434C",
+    },
   },
   reducers: {
     setLeftSide: (state, action) => {
@@ -24,9 +33,12 @@ export const siteSlice = createSlice({
     setRightSide: (state, action) => {
       state.rightSide = action.payload;
     },
+    setColors: (state, action) => {
+      state.colors = action.payload;
+    },
   },
 });
 
-export const { setLeftSide, setRightSide } = siteSlice.actions;
+export const { setLeftSide, setRightSide, setColors } = siteSlice.actions;
 
 export default siteSlice.reducer;
