@@ -24,7 +24,7 @@ body {
 
 h4 {
   @apply text-2xl text-white tracking-wide border-b-2 border-b-white mb-2 mx-2;
-  font-family: "Alkalami", serif;
+  font-family: "Open Sans", serif;
 }
 
 form {
