@@ -13,6 +13,7 @@ export default function File({ label, ...props }) {
       <div className="text-base text-white flex items-center">{label}</div>
       <input
         type="file"
+        accept=".jpeg,.jpg,.png"
         className={classNames({
           "w-full text-white text-opacity-100 border-b-2 focus:border-opacity-100 outline-none placeholder:text-white placeholder:text-opacity-30 focus:placeholder:text-opacity-100 transition-all duration-1000 ease-linear": true,
           "border-white border-opacity-30": !meta.error,
