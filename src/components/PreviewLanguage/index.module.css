@@ -3,7 +3,7 @@
 }
 
 .title {
-  @apply p-2 mb-4 mt-4 uppercase font-bold text-center tracking-widest;
+  @apply p-2 mb-4 mt-4 font-bold text-center tracking-widest;
 }
 
 .item {
