@@ -1,19 +1,21 @@
 import React from "react";
 import { Formik, Form } from "formik";
-import { Input, Button, Select } from "../_form";
+import { Input, Select } from "../_form";
 import styles from "./index.module.css";
 import { LanguageSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setLanguages } from "../../stores/form";
 import { nanoid } from "nanoid";
 import { Card, CardDetail, Buttons } from "../";
+import { useWords } from "../../hooks";
 
 export const FormLanguage = ({ handleResetData }) => {
   const dispatch = useDispatch();
   const { languages } = useSelector((state) => state.form);
+  const words = useWords();
 
   return (
-    <Card title="Languages">
+    <Card title={words.languages}>
       <Formik
         validationSchema={LanguageSchema}
         initialValues={{
@@ -39,12 +41,13 @@ export const FormLanguage = ({ handleResetData }) => {
               onChange={handleChange}
               value={values.name}
               name="name"
-              placeholder="Language"
+              placeholder={words.language}
             />
             <Select
               label="Level"
               name="level"
               options={[
+                { key: words.native, value: words.native },
                 { key: "A1", value: "A1" },
                 { key: "A2", value: "A2" },
                 { key: "B1", value: "B1" },

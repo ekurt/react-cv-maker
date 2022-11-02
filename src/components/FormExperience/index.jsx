@@ -1,19 +1,21 @@
 import React from "react";
 import { Formik, Form } from "formik";
-import { Input, Button, Textarea } from "../_form";
+import { Input, Textarea } from "../_form";
 import styles from "./index.module.css";
 import { ExperienceSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setExperience } from "../../stores/form";
 import { nanoid } from "nanoid";
 import { Card, CardDetail, Buttons } from "../";
+import { useWords } from "../../hooks";
 
 export const FormExperience = ({ handleResetData }) => {
   const dispatch = useDispatch();
   const { experience } = useSelector((state) => state.form);
+  const words = useWords();
 
   return (
-    <Card title="Experience">
+    <Card title={words.experience}>
       <Formik
         validationSchema={ExperienceSchema}
         initialValues={{
@@ -43,39 +45,39 @@ export const FormExperience = ({ handleResetData }) => {
               onChange={handleChange}
               value={values.company}
               name="company"
-              placeholder="Company Name"
+              placeholder={words.company}
               sizeFull={true}
             />
             <Input
               onChange={handleChange}
               value={values.position}
               name="position"
-              placeholder="Position"
+              placeholder={words.position}
             />
             <Input
               onChange={handleChange}
               value={values.city}
               name="city"
-              placeholder="City"
+              placeholder={words.city}
             />
             <Input
               onChange={handleChange}
               value={values.from}
               name="from"
-              placeholder="From"
+              placeholder={words.from}
             />
             <Input
               onChange={handleChange}
               value={values.to}
               name="to"
-              placeholder="To"
+              placeholder={words.to}
             />
             <Textarea
               rows={3}
               onChange={handleChange}
               value={values.description}
               name="description"
-              placeholder="Description"
+              placeholder={words.description}
             />
             <Buttons
               dirty={dirty}

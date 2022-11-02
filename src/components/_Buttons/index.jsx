@@ -1,4 +1,5 @@
 import React from "react";
+import { useWords } from "../../hooks";
 import { Button } from "../_form";
 import styles from "./index.module.css";
 
@@ -10,10 +11,12 @@ export const Buttons = ({
   state,
   isArray = true,
 }) => {
+  const words = useWords();
+
   return (
     <>
       <Button type="submit" variant="info" disabled={!dirty}>
-        ADD
+        {words.add}
       </Button>
       <Button
         type="reset"
@@ -21,7 +24,7 @@ export const Buttons = ({
         onClick={handleReset}
         disabled={!dirty}
       >
-        CLEAR
+        {words.clear}
       </Button>
       <Button
         type="button"
@@ -33,7 +36,7 @@ export const Buttons = ({
           isArray ? state.length === 0 : Object.keys(state).length === 0
         }
       >
-        CLEAR ALL
+        {words.clear_all}
       </Button>
     </>
   );

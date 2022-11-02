@@ -1,19 +1,21 @@
 import React from "react";
 import { Formik, Form } from "formik";
-import { Input, Button } from "../_form";
+import { Input } from "../_form";
 import styles from "./index.module.css";
 import { HobbiesSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setHobbies } from "../../stores/form";
 import { nanoid } from "nanoid";
 import { Card, CardDetail, Buttons } from "../";
+import { useWords } from "../../hooks";
 
 export const FormHobbies = ({ handleResetData }) => {
   const dispatch = useDispatch();
   const { hobbies } = useSelector((state) => state.form);
+  const words = useWords();
 
   return (
-    <Card title="Hobbies">
+    <Card title={words.hobbies}>
       <Formik
         validationSchema={HobbiesSchema}
         initialValues={{
@@ -38,7 +40,7 @@ export const FormHobbies = ({ handleResetData }) => {
               onChange={handleChange}
               value={values.name}
               name="name"
-              placeholder="Hobby"
+              placeholder={words.hobby}
               sizeFull={true}
             />
             <Buttons

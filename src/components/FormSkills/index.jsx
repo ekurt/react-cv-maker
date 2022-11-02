@@ -1,19 +1,21 @@
 import React from "react";
 import { Formik, Form } from "formik";
-import { Input, Button, Select } from "../_form";
+import { Input, Select } from "../_form";
 import styles from "./index.module.css";
 import { SkillsSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setSkills } from "../../stores/form";
 import { nanoid } from "nanoid";
 import { Card, CardDetail, Buttons } from "../";
+import { useWords } from "../../hooks";
 
 export const FormSkills = ({ handleResetData }) => {
   const dispatch = useDispatch();
   const { skills } = useSelector((state) => state.form);
+  const words = useWords();
 
   return (
-    <Card title="Skills">
+    <Card title={words.skills}>
       <Formik
         validationSchema={SkillsSchema}
         initialValues={{
@@ -39,10 +41,10 @@ export const FormSkills = ({ handleResetData }) => {
               onChange={handleChange}
               value={values.name}
               name="name"
-              placeholder="Skill Name"
+              placeholder={words.skill}
             />
             <Select
-              label="Level"
+              label={words.level}
               name="level"
               options={[
                 { key: "1", value: "10 / 100" },

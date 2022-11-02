@@ -1,10 +1,12 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { useWords } from "../../hooks";
 import styles from "./index.module.css";
 
 export const PreviewSocial = () => {
   const { social } = useSelector((state) => state.form);
   const { colors } = useSelector((state) => state.site);
+  const words = useWords();
 
   let items;
 
@@ -50,7 +52,7 @@ export const PreviewSocial = () => {
             className={styles.title}
             style={{ background: colors.primary, color: colors.titles }}
           >
-            Social
+            {words.social_upper}
           </div>
           {items}
         </>

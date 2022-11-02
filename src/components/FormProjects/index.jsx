@@ -1,19 +1,21 @@
 import React from "react";
 import { Formik, Form } from "formik";
-import { Input, Button, Textarea } from "../_form";
+import { Input, Textarea } from "../_form";
 import styles from "./index.module.css";
 import { ProjectsSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setProjects } from "../../stores/form";
 import { nanoid } from "nanoid";
 import { Card, CardDetail, Buttons } from "../";
+import { useWords } from "../../hooks";
 
 export const FormProjects = ({ handleResetData }) => {
   const dispatch = useDispatch();
   const { projects } = useSelector((state) => state.form);
+  const words = useWords();
 
   return (
-    <Card title="Projects">
+    <Card title={words.projects}>
       <Formik
         validationSchema={ProjectsSchema}
         initialValues={{
@@ -40,20 +42,20 @@ export const FormProjects = ({ handleResetData }) => {
               onChange={handleChange}
               value={values.name}
               name="name"
-              placeholder="Project Name"
+              placeholder={words.project}
             />
             <Input
               onChange={handleChange}
               value={values.link}
               name="link"
-              placeholder="Project Link"
+              placeholder={words.link}
             />
             <Textarea
               rows={3}
               onChange={handleChange}
               value={values.description}
               name="description"
-              placeholder="Description"
+              placeholder={words.description}
             />
             <Buttons
               dirty={dirty}

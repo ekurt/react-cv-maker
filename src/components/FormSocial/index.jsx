@@ -1,19 +1,21 @@
 import React from "react";
 import { Formik, Form } from "formik";
-import { Input, Button, Select } from "../_form";
+import { Input, Select } from "../_form";
 import styles from "./index.module.css";
 import { SocialSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setSocial } from "../../stores/form";
 import { nanoid } from "nanoid";
 import { Card, CardDetail, Buttons } from "../";
+import { useWords } from "../../hooks";
 
 export const FormSocial = ({ handleResetData }) => {
   const dispatch = useDispatch();
   const { social } = useSelector((state) => state.form);
+  const words = useWords();
 
   return (
-    <Card title="Social">
+    <Card title={words.social}>
       <Formik
         validationSchema={SocialSchema}
         initialValues={{
@@ -39,18 +41,18 @@ export const FormSocial = ({ handleResetData }) => {
               label="Type"
               name="name"
               options={[
-                { key: "Twitter", value: "Twitter Username" },
-                { key: "Github", value: "Github Username" },
-                { key: "LinkedIn", value: "LinkedIn Username" },
-                { key: "Website", value: "Personal Website" },
-                { key: "URL", value: "External URL" },
+                { key: "Twitter", value: words.twitter_username },
+                { key: "Github", value: words.github_username },
+                { key: "LinkedIn", value: words.linkedin_username },
+                { key: "Website", value: words.personal_website },
+                { key: "URL", value: words.external_url },
               ]}
             />
             <Input
               onChange={handleChange}
               value={values.link}
               name="link"
-              placeholder="Username or URL Address"
+              placeholder={words.username_or_url}
             />
             <Buttons
               dirty={dirty}

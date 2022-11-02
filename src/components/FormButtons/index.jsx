@@ -1,6 +1,7 @@
 import { nanoid } from "nanoid";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useWords } from "../../hooks";
 import {
   setCourses,
   setEducation,
@@ -19,6 +20,8 @@ import styles from "./index.module.css";
 
 export const FormButtons = ({ handlePrint }) => {
   const dispatch = useDispatch();
+  const words = useWords();
+
   const { personal } = useSelector((state) => state.form);
   const { isContentEditable } = useSelector((state) => state.site);
 
@@ -241,28 +244,28 @@ export const FormButtons = ({ handlePrint }) => {
   return (
     <div className={styles.container}>
       <Button onClick={uploadSample} variant="success">
-        SAMPLE
+        {words.sample}
       </Button>
       <Button
         onClick={clearData}
         variant="danger"
         disabled={Object.keys(personal).length === 0}
       >
-        CLEAR ALL
+        {words.clear_all}
       </Button>
       <Button
         onClick={handlePrint}
         variant="info"
         disabled={Object.keys(personal).length === 0}
       >
-        PDF
+        {words.pdf}
       </Button>
       <Button
         onClick={() => dispatch(setContentEditable(!isContentEditable))}
         variant={isContentEditable ? "success" : "danger"}
         disabled={Object.keys(personal).length === 0}
       >
-        LIVE EDIT
+        {words.live_edit}
       </Button>
     </div>
   );

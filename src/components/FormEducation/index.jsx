@@ -1,19 +1,21 @@
 import React from "react";
 import { Formik, Form } from "formik";
-import { Input, Button } from "../_form";
+import { Input } from "../_form";
 import styles from "./index.module.css";
 import { EducationSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setEducation } from "../../stores/form";
 import { nanoid } from "nanoid";
 import { Card, CardDetail, Buttons } from "../";
+import { useWords } from "../../hooks";
 
 export const FormEducation = ({ handleResetData }) => {
   const dispatch = useDispatch();
   const { education } = useSelector((state) => state.form);
+  const words = useWords();
 
   return (
-    <Card title="Education">
+    <Card title={words.education}>
       <Formik
         validationSchema={EducationSchema}
         initialValues={{
@@ -43,37 +45,37 @@ export const FormEducation = ({ handleResetData }) => {
               onChange={handleChange}
               value={values.school}
               name="school"
-              placeholder="School Name"
+              placeholder={words.school}
             />
             <Input
               onChange={handleChange}
               value={values.subject}
               name="subject"
-              placeholder="Subject"
+              placeholder={words.subject}
             />
             <Input
               onChange={handleChange}
               value={values.degree}
               name="degree"
-              placeholder="Degree"
+              placeholder={words.degree}
             />
             <Input
               onChange={handleChange}
               value={values.city}
               name="city"
-              placeholder="City"
+              placeholder={words.city}
             />
             <Input
               onChange={handleChange}
               value={values.from}
               name="from"
-              placeholder="From"
+              placeholder={words.from}
             />
             <Input
               onChange={handleChange}
               value={values.to}
               name="to"
-              placeholder="To"
+              placeholder={words.to}
             />
             <Buttons
               dirty={dirty}

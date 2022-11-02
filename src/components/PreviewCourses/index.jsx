@@ -1,10 +1,12 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { useWords } from "../../hooks";
 import styles from "./index.module.css";
 
 export const PreviewCourses = () => {
   const { courses } = useSelector((state) => state.form);
   const { colors } = useSelector((state) => state.site);
+  const words = useWords();
 
   let items;
 
@@ -33,7 +35,7 @@ export const PreviewCourses = () => {
             className={styles.title}
             style={{ background: colors.primary, color: colors.titles }}
           >
-            Courses
+            {words.courses_upper}
           </div>
           {items}
         </>

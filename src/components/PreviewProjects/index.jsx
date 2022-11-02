@@ -1,10 +1,12 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { useWords } from "../../hooks";
 import styles from "./index.module.css";
 
 export const PreviewProjects = () => {
   const { projects } = useSelector((state) => state.form);
   const { colors } = useSelector((state) => state.site);
+  const words = useWords();
 
   let items;
 
@@ -43,7 +45,7 @@ export const PreviewProjects = () => {
             className={styles.title}
             style={{ background: colors.primary, color: colors.titles }}
           >
-            Projects
+            {words.projects_upper}
           </div>
           {items}
         </>

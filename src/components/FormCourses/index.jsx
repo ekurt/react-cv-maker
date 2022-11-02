@@ -1,19 +1,21 @@
 import React from "react";
 import { Formik, Form } from "formik";
-import { Input, Button, Textarea } from "../_form";
+import { Input, Textarea } from "../_form";
 import styles from "./index.module.css";
 import { CoursesSchema } from "../../validations";
 import { useDispatch, useSelector } from "react-redux";
 import { setCourses } from "../../stores/form";
 import { nanoid } from "nanoid";
 import { Card, CardDetail, Buttons } from "../";
+import { useWords } from "../../hooks";
 
 export const FormCourses = ({ handleResetData }) => {
   const dispatch = useDispatch();
   const { courses } = useSelector((state) => state.form);
+  const words = useWords();
 
   return (
-    <Card title="Courses">
+    <Card title={words.courses}>
       <Formik
         validationSchema={CoursesSchema}
         initialValues={{
@@ -42,32 +44,32 @@ export const FormCourses = ({ handleResetData }) => {
               onChange={handleChange}
               value={values.name}
               name="name"
-              placeholder="Course Name"
+              placeholder={words.course}
             />
             <Input
               onChange={handleChange}
               value={values.company}
               name="company"
-              placeholder="Company Name"
+              placeholder={words.company}
             />
             <Input
               onChange={handleChange}
               value={values.from}
               name="from"
-              placeholder="From"
+              placeholder={words.from}
             />
             <Input
               onChange={handleChange}
               value={values.to}
               name="to"
-              placeholder="To"
+              placeholder={words.to}
             />
             <Textarea
               rows={3}
               onChange={handleChange}
               value={values.description}
               name="description"
-              placeholder="Description"
+              placeholder={words.description}
             />
             <Buttons
               dirty={dirty}

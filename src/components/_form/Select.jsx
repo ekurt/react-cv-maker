@@ -1,8 +1,10 @@
 import { useField } from "formik";
 import classNames from "classnames";
+import { useWords } from "../../hooks";
 
 export default function Select({ label, sizeFull = false, options, ...props }) {
   const [fields, meta, helpers] = useField(props);
+  const words = useWords();
   return (
     <label
       className={classNames({
@@ -21,7 +23,7 @@ export default function Select({ label, sizeFull = false, options, ...props }) {
         {...props}
       >
         <option className="bg-sky-700" value="">
-          Select {label}
+          {words.select}
         </option>
         {options.map((option, index) => (
           <option className="bg-sky-700" key={index} value={option.key}>

@@ -2,10 +2,12 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { FaCircle, FaRegCircle } from "react-icons/fa";
 import styles from "./index.module.css";
+import { useWords } from "../../hooks";
 
 export const PreviewSkills = () => {
   const { skills } = useSelector((state) => state.form);
   const { colors } = useSelector((state) => state.site);
+  const words = useWords();
 
   let items;
 
@@ -39,7 +41,7 @@ export const PreviewSkills = () => {
             className={styles.title}
             style={{ background: colors.primary, color: colors.titles }}
           >
-            Skills
+            {words.skills_upper}
           </div>
           {items}
         </>

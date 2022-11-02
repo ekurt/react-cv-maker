@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { useWords } from "../../hooks";
 
 import styles from "./index.module.css";
 
@@ -7,6 +8,7 @@ export const PreviewPersonal = () => {
   const { photo, address, gsm, letter } = useSelector(
     (state) => state.form.personal
   );
+  const words = useWords();
 
   return (
     <div className={styles.container}>
@@ -17,18 +19,18 @@ export const PreviewPersonal = () => {
       )}
       {address && (
         <div className={styles.item}>
-          <strong>Address</strong> {address}
+          <strong>{words.address}</strong> {address}
         </div>
       )}
       {gsm && (
         <div className={styles.item}>
-          <strong>Mobile Phone</strong>
+          <strong>{words.phone_number}</strong>
           <a href={`tel:${gsm.replace(/\s/g, "")}`}>{gsm}</a>
         </div>
       )}
       {letter && (
         <div className={styles.item}>
-          <strong>Email Address</strong>
+          <strong>{words.email_address}</strong>
           <a href={`mailto:${letter}`}>{letter}</a>
         </div>
       )}
