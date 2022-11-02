@@ -4,25 +4,23 @@ import { useDispatch } from "react-redux";
 import { setColors } from "../../stores/site";
 import styles from "./index.module.css";
 
-export const Color = ({ title, defaultValue }) => {
+export const Color = ({ title, name, defaultValue }) => {
   const { colors } = useSelector((state) => state.site);
   const dispatch = useDispatch();
-
-  let color = title.toLowerCase();
 
   return (
     <div className={styles.item}>
       <span className={styles.span}>{title}</span>
       <input
-        name={color}
+        name={name}
         type="color"
-        value={colors[color]}
+        value={colors[name]}
         className={styles.box}
         onChange={(e) =>
-          dispatch(setColors({ ...colors, [color]: e.target.value }))
+          dispatch(setColors({ ...colors, [name]: e.target.value }))
         }
         onDoubleClick={() =>
-          dispatch(setColors({ ...colors, [color]: defaultValue }))
+          dispatch(setColors({ ...colors, [name]: defaultValue }))
         }
       />
     </div>
