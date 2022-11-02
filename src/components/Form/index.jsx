@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import {
+  Language,
   FormMobile,
   FormButtons,
   FormColors,
@@ -27,6 +28,7 @@ export const Form = ({ handlePrint }) => {
 
   return (
     <div className={styles.form}>
+      <Language />
       <FormMobile />
       <FormButtons handlePrint={handlePrint} />
       <FormColors />
