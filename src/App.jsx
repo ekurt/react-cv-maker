@@ -1,7 +1,8 @@
 import { Form, Preview } from "./components";
 import styles from "./App.module.css";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useReactToPrint } from "react-to-print";
+import { useSelector } from "react-redux";
 
 function App() {
   const printRef = useRef();
@@ -12,6 +13,12 @@ function App() {
   const getPageMargins = () => {
     return `@page { margin: 0 0 0 0 !important; }`;
   };
+
+  const { language } = useSelector((state) => state.language);
+
+  useEffect(() => {
+    document.documentElement.lang = language;
+  }, [language]);
 
   return (
     <div className={styles.app}>
