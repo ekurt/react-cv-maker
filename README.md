@@ -13,6 +13,7 @@
 - Drag-Drop for sections
 - Color customize
 - Live editable content
+- Multi-language support
 - Personal information section
 - Social section
 - Languages section
@@ -42,6 +43,7 @@
 - react-redux
 - react-icons
 - react-to-print
+- react-country-flag
 - react-beautiful-dnd
 - classnames
 - nanoid
