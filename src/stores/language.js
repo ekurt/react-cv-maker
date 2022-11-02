@@ -72,6 +72,7 @@ export const languageSlice = createSlice({
         course: "Course Name",
         reference: "Reference Name",
         reference_title: "Reference Title",
+        confirm: "Are you sure all data will be deleted?",
       },
       tr: {
         set_language: "ENGLISH",
@@ -141,6 +142,7 @@ export const languageSlice = createSlice({
         course: "Kurs Adı",
         reference: "Referans Adı",
         reference_title: "Referans Ünvanı",
+        confirm: "Tüm verilerin silineceğinden emin misiniz?",
       },
     },
     language: "en",

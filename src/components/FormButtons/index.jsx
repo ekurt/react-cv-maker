@@ -227,7 +227,7 @@ export const FormButtons = ({ handlePrint }) => {
   };
 
   const clearData = () => {
-    if (window.confirm("Are you sure all data will be deleted?")) {
+    if (window.confirm(words.confirm)) {
       dispatch(setCourses([]));
       dispatch(setEducation([]));
       dispatch(setExperience([]));
