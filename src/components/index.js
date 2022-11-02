@@ -29,3 +29,4 @@ export { FormFooter } from "./FormFooter";
 export { Buttons } from "./_Buttons";
 export { FormColors } from "./FormColors";
 export { Color } from "./_Color";
+export { Language } from "./_Language";
