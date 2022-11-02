@@ -1,0 +1,7 @@
+.language {
+  @apply bg-sky-700 lg:bg-dark flex items-center text-xs text-white tracking-widest cursor-pointer;
+}
+
+.span {
+  @apply px-1;
+}
