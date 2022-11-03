@@ -3,7 +3,7 @@
 }
 
 .title {
-  @apply text-6xl text-center font-bold tracking-widest uppercase;
+  @apply text-6xl text-center font-bold tracking-widest;
 }
 
 .subtitle {
