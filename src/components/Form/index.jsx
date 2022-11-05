@@ -5,6 +5,7 @@ import {
   FormMobile,
   FormButtons,
   FormColors,
+  FormMargins,
   FormPersonal,
   FormLanguage,
   FormHobbies,
@@ -32,6 +33,7 @@ export const Form = ({ handlePrint }) => {
       <FormMobile />
       <FormButtons handlePrint={handlePrint} />
       <FormColors />
+      <FormMargins />
       <FormPersonal />
       <FormSocial handleResetData={handleResetData} />
       <FormLanguage handleResetData={handleResetData} />
