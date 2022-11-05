@@ -1,0 +1,21 @@
+.item {
+  @apply w-full sm:w-40 lg:w-52 2xl:w-40 flex flex-col mb-2;
+}
+
+.span {
+  @apply text-xs text-white;
+}
+
+.range {
+  @apply w-full;
+}
+
+.datalist {
+  @apply w-full flex flex-col justify-between text-xs pointer-events-none;
+  writing-mode: vertical-lr;
+}
+
+.option {
+  @apply flex justify-center p-0;
+  transform: rotate(-90deg);
+}
