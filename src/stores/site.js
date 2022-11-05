@@ -25,6 +25,12 @@ export const siteSlice = createSlice({
       titles: "#E1D8CF",
       text: "#43434C",
     },
+    margins: {
+      top: 0,
+      right: 0,
+      bottom: 0,
+      left: 0,
+    },
     isContentEditable: false,
   },
   reducers: {
@@ -37,13 +43,21 @@ export const siteSlice = createSlice({
     setColors: (state, action) => {
       state.colors = action.payload;
     },
+    setMargins: (state, action) => {
+      state.margins = action.payload;
+    },
     setContentEditable: (state, action) => {
       state.isContentEditable = action.payload;
     },
   },
 });
 
-export const { setLeftSide, setRightSide, setColors, setContentEditable } =
-  siteSlice.actions;
+export const {
+  setLeftSide,
+  setRightSide,
+  setColors,
+  setMargins,
+  setContentEditable,
+} = siteSlice.actions;
 
 export default siteSlice.reducer;
