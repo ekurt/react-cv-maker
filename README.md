@@ -12,6 +12,7 @@
 - Print & Save as PDF
 - Drag-Drop for sections
 - Color customize
+- Print page margins customize
 - Live editable content
 - Multi-language support
 - Personal information section
