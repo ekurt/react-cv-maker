@@ -34,6 +34,7 @@
     "@reduxjs/toolkit": "^1.8.5",
     "classnames": "^2.3.2",
     "formik": "^2.2.9",
+    "helmet": "^6.0.0",
     "nanoid": "^4.0.0",
     "react": "^18.2.0",
     "react-beautiful-dnd": "^13.1.1",
