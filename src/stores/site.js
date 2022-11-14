@@ -19,11 +19,11 @@ export const siteSlice = createSlice({
     colors: {
       primary: "#373740",
       secondary: "#E1D8CF",
-      body: "#FFFFFF",
       title: "#E1D8CF",
       subtitle: "#FFFFFF",
       titles: "#E1D8CF",
-      text: "#43434C",
+      text1: "#43434C",
+      text2: "#43434C",
     },
     margins: {
       top: 0,
