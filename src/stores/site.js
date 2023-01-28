@@ -1,5 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const LOCAL_STORAGE_COLORS = "cv-maker-colors";
+const LOCAL_STORAGE_MARGINS = "cv-maker-margins";
+const colors = JSON.parse(localStorage.getItem(LOCAL_STORAGE_COLORS));
+const margins = JSON.parse(localStorage.getItem(LOCAL_STORAGE_MARGINS));
+
 export const siteSlice = createSlice({
   name: "site",
   initialState: {
@@ -17,19 +22,19 @@ export const siteSlice = createSlice({
       { id: 6, component: "PreviewReferences" },
     ],
     colors: {
-      primary: "#373740",
-      secondary: "#E1D8CF",
-      title: "#E1D8CF",
-      subtitle: "#FFFFFF",
-      titles: "#E1D8CF",
-      text1: "#43434C",
-      text2: "#43434C",
+      primary: colors?.primary || "#373740",
+      secondary: colors?.secondary || "#E1D8CF",
+      title: colors?.title || "#E1D8CF",
+      subtitle: colors?.subtitle || "#FFFFFF",
+      titles: colors?.titles || "#E1D8CF",
+      text1: colors?.text1 || "#43434C",
+      text2: colors?.text2 || "#43434C",
     },
     margins: {
-      top: 0,
-      right: 0,
-      bottom: 0,
-      left: 0,
+      top: margins?.top || 0,
+      right: margins?.right || 0,
+      bottom: margins?.bottom || 0,
+      left: margins?.left || 0,
     },
     isContentEditable: false,
   },

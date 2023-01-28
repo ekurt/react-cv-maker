@@ -1,5 +1,5 @@
 import { nanoid } from "nanoid";
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useWords } from "../../hooks";
 import {
@@ -17,6 +17,8 @@ import {
 import { setContentEditable } from "../../stores/site";
 import { Button } from "../_form";
 import styles from "./index.module.css";
+
+const LOCAL_STORAGE_APP = "cv-maker-app";
 
 export const FormButtons = ({ handlePrint }) => {
   const dispatch = useDispatch();
@@ -238,6 +240,33 @@ export const FormButtons = ({ handlePrint }) => {
       ])
     );
   };
+
+  useEffect(() => {
+    const json = {
+      personal: personal,
+      languages: languages,
+      hobbies: hobbies,
+      education: education,
+      experience: experience,
+      skills: skills,
+      projects: projects,
+      courses: courses,
+      references: references,
+      social: social,
+    };
+    localStorage.setItem(LOCAL_STORAGE_APP, JSON.stringify(json));
+  }, [
+    personal,
+    languages,
+    hobbies,
+    education,
+    experience,
+    skills,
+    projects,
+    courses,
+    references,
+    social,
+  ]);
 
   const clearData = () => {
     if (window.confirm(words.confirm)) {

@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { setMargins } from "../../stores/site";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./index.module.css";
 
+const LOCAL_STORAGE_MARGINS = "cv-maker-margins";
+
 export const Range = ({ title, state }) => {
   const dispatch = useDispatch();
   const { margins } = useSelector((state) => state.site);
+
+  useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_MARGINS, JSON.stringify(margins));
+  }, [margins]);
 
   return (
     <>

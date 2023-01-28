@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { setColors } from "../../stores/site";
 import styles from "./index.module.css";
 
+const LOCAL_STORAGE_COLORS = "cv-maker-colors";
+
 export const Color = ({ title, name, defaultValue }) => {
   const { colors } = useSelector((state) => state.site);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_COLORS, JSON.stringify(colors));
+  }, [colors]);
 
   return (
     <div className={styles.item}>

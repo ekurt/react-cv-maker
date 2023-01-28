@@ -1,18 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const LOCAL_STORAGE_APP = "cv-maker-app";
+const data = JSON.parse(localStorage.getItem(LOCAL_STORAGE_APP));
+
 export const formSlice = createSlice({
   name: "form",
   initialState: {
-    personal: {},
-    languages: [],
-    hobbies: [],
-    education: [],
-    experience: [],
-    skills: [],
-    projects: [],
-    courses: [],
-    references: [],
-    social: [],
+    personal: data?.personal || {},
+    languages: data?.languages || [],
+    hobbies: data?.hobbies || [],
+    education: data?.education || [],
+    experience: data?.experience || [],
+    skills: data?.skills || [],
+    projects: data?.projects || [],
+    courses: data?.courses || [],
+    references: data?.references || [],
+    social: data?.social || [],
   },
   reducers: {
     setPersonal: (state, action) => {
