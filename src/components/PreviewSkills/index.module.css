@@ -7,7 +7,7 @@
 }
 
 .item {
-  @apply flex flex-col mb-4;
+  @apply flex flex-col mb-3;
 }
 
 .itemHeader {

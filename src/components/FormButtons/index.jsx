@@ -1,5 +1,5 @@
 import { nanoid } from "nanoid";
-import React from "react";
+import React, { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useWords } from "../../hooks";
 import {
@@ -22,7 +22,20 @@ export const FormButtons = ({ handlePrint }) => {
   const dispatch = useDispatch();
   const words = useWords();
 
-  const { personal } = useSelector((state) => state.form);
+  const inputFile = useRef(null);
+
+  const {
+    personal,
+    languages,
+    hobbies,
+    education,
+    experience,
+    skills,
+    projects,
+    courses,
+    references,
+    social,
+  } = useSelector((state) => state.form);
   const { isContentEditable } = useSelector((state) => state.site);
 
   const uploadSample = () => {
@@ -241,9 +254,62 @@ export const FormButtons = ({ handlePrint }) => {
     }
   };
 
+  const exportData = () => {
+    const json = {
+      personal: personal,
+      languages: languages,
+      hobbies: hobbies,
+      education: education,
+      experience: experience,
+      skills: skills,
+      projects: projects,
+      courses: courses,
+      references: references,
+      social: social,
+    };
+
+    const jsonString = `data:text/json;chatset=utf-8,${encodeURIComponent(
+      JSON.stringify(json, null, 2)
+    )}`;
+
+    const link = document.createElement("a");
+    const date = new Date().toLocaleDateString().replace(/\//g, "-");
+
+    link.href = jsonString;
+    link.download = `${personal.nameSurname
+      .split(" ")
+      .join("-")}-CV-Data-${date}.json`;
+    link.click();
+  };
+
+  const importData = (data) => {
+    dispatch(setCourses(data.courses));
+    dispatch(setEducation(data.education));
+    dispatch(setExperience(data.experience));
+    dispatch(setHobbies(data.hobbies));
+    dispatch(setLanguages(data.languages));
+    dispatch(setPersonal(data.personal));
+    dispatch(setProjects(data.projects));
+    dispatch(setReferences(data.references));
+    dispatch(setSkills(data.skills));
+    dispatch(setSocial(data.social));
+  };
+
+  const handleChange = (e) => {
+    const fileReader = new FileReader();
+    fileReader.readAsText(e.target.files[0], "UTF-8");
+    fileReader.onload = (e) => {
+      importData(JSON.parse(e.target.result));
+    };
+  };
+
   return (
     <div className={styles.container}>
-      <Button onClick={uploadSample} variant="success">
+      <Button
+        onClick={uploadSample}
+        variant="success"
+        disabled={Object.keys(personal).length !== 0}
+      >
         {words.sample}
       </Button>
       <Button
@@ -267,6 +333,30 @@ export const FormButtons = ({ handlePrint }) => {
       >
         {words.live_edit}
       </Button>
+      <Button
+        onClick={exportData}
+        variant="success"
+        disabled={Object.keys(personal).length === 0}
+      >
+        {words.export}
+      </Button>
+      <Button
+        onClick={() => {
+          inputFile.current.click();
+        }}
+        variant="success"
+        disabled={Object.keys(personal).length !== 0}
+      >
+        {words.import}
+      </Button>
+      <input
+        type="file"
+        id="file"
+        ref={inputFile}
+        onChange={handleChange}
+        accept=".json"
+        style={{ display: "none" }}
+      />
     </div>
   );
 };
