@@ -10,6 +10,8 @@
 
 - Fill Sample
 - Print & Save as PDF
+- Data is storing in your browser `Local Storage`
+- Import and Export datas `.json`
 - Drag-Drop for sections
 - Color customize
 - Print page margins customize
